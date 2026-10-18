@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatomi Lingkaran - Matematika SMP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e0e7ff 100%);
+            min-height: 100vh;
+        }
+        .font-heading {
+            font-family: 'Fredoka', cursive;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .pulse-subtle {
+            animation: pulse-animation 2s infinite ease-in-out;
+        }
+        @keyframes pulse-animation {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        .element-path {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .element-path:hover {
+            stroke-width: 6;
+            filter: drop-shadow(0px 0px 8px rgba(59, 130, 246, 0.6));
+        }
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-slate-800 pb-12">
+
+    <!-- Header Navigation -->
+    <header class="bg-indigo-600 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="goToMuka1()">
+                <div class="bg-amber-400 text-indigo-900 w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl shadow">
+                    <i class="fa-solid fa-circle-notch text-2xl animate-spin" style="animation-duration: 8s;"></i>
+                </div>
+                <div>
+                    <h1 class="font-heading text-xl md:text-2xl font-bold tracking-wide">Anatomi Lingkaran</h1>
+                    <p class="text-xs text-indigo-200">Matematika SMP</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs (Muka 2 & Modul) -->
+    <div id="top-nav-bar" class="max-w-6xl mx-auto px-4 mt-6 hidden">
+        <div class="flex flex-wrap gap-2 justify-between items-center bg-white/90 backdrop-blur p-2.5 rounded-2xl shadow-sm border border-slate-200/80 mb-4">
+            <button onclick="goToMuka2()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-xs transition flex items-center gap-2 shadow">
+                <i class="fa-solid fa-border-all text-amber-300"></i> Menu Utama
+            </button>
+            <button onclick="goToMuka1()" class="px-4 py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-xl font-bold text-xs transition flex items-center gap-2 shadow">
+                <i class="fa-solid fa-house"></i> Kembali ke Sampul
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-6xl mx-auto px-4 mt-6">
+
+        <!-- MUKA 1: HALAMAN SAMPUL / WELCOME SCREEN -->
+        <section id="muka-1" class="block min-h-[75vh] flex items-center justify-center py-6 fade-in">
+            <div class="glass-card max-w-3xl w-full p-8 md:p-12 rounded-3xl shadow-2xl text-center border border-white/80 relative overflow-hidden">
+                <div class="absolute -top-12 -left-12 w-40 h-40 bg-indigo-300/30 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="absolute -bottom-12 -right-12 w-48 h-48 bg-amber-300/30 rounded-full blur-2xl pointer-events-none"></div>
+
+                <!-- Hero Dynamic Visual Icon representing Circle & Elements -->
+                <div class="relative w-36 h-36 mx-auto mb-6 flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-indigo-600 to-amber-400 rounded-full animate-ping opacity-25"></div>
+                    <div class="w-32 h-32 bg-gradient-to-tr from-indigo-700 via-indigo-600 to-amber-500 rounded-full flex items-center justify-center text-white shadow-2xl pulse-subtle relative border-4 border-white">
+                        <svg viewBox="0 0 100 100" class="w-24 h-24 absolute inset-0">
+                            <circle cx="50" cy="50" r="38" fill="none" stroke="#fde047" stroke-width="3" stroke-dasharray="4,2"/>
+                            <line x1="50" y1="50" x2="88" y2="50" stroke="#38bdf8" stroke-width="4"/>
+                            <line x1="12" y1="50" x2="88" y2="50" stroke="#f43f5e" stroke-width="3" stroke-dasharray="2,2"/>
+                            <circle cx="50" cy="50" r="5" fill="#ffffff"/>
+                        </svg>
+                        <i class="fa-solid fa-compass-drafting text-4xl text-amber-200 z-10 drop-shadow"></i>
+                    </div>
+                </div>
+
+                <!-- Main Title & Subtitle -->
+                <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest mb-3 border border-indigo-200 shadow-sm">
+                    Media Pembelajaran Interaktif
+                </span>
+                
+                <h1 class="font-heading text-4xl md:text-6xl font-black text-slate-900 tracking-tight leading-none mb-4 drop-shadow-sm">
+                    ANATOMI LINGKARAN
+                </h1>
+                
+                <p class="text-slate-600 text-base md:text-lg max-w-xl mx-auto mb-8 font-medium leading-relaxed">
+                    Matematika SMP
+                </p>
+
+                <!-- Action Button 'Mulai' -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="goToMuka2()" class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-indigo-600 via-indigo-700 to-indigo-800 hover:from-indigo-700 hover:to-indigo-900 text-white font-heading font-bold text-lg rounded-2xl shadow-xl hover:shadow-indigo-500/25 transition-all transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3 group">
+                        <span>MULAI PETUALANGAN</span>
+                        <i class="fa-solid fa-circle-play text-amber-300 text-xl group-hover:translate-x-1 transition"></i>
+                    </button>
+                    
+                    <button onclick="openTujuanModal()" class="w-full sm:w-auto px-6 py-4 bg-white hover:bg-slate-50 text-slate-700 font-bold text-sm rounded-2xl border-2 border-slate-200 shadow-sm transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-bullseye text-indigo-600 text-lg"></i>
+                        <span>Tujuan Pembelajaran</span>
+                    </button>
+                </div>
+
+                <!-- Quick Highlights -->
+                <div class="mt-10 pt-6 border-t border-slate-200/80 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-slate-500 font-semibold">
+                    <div class="flex items-center justify-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> Diagram Interaktif</div>
+                    <div class="flex items-center justify-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> Benda Realitas</div>
+                    <div class="flex items-center justify-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> Simulasi & Rumus</div>
+                    <div class="flex items-center justify-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> Game & Kuis</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MUKA 2: DASHBOARD UTAMA NAVIGASI -->
+        <section id="muka-2" class="hidden space-y-8 fade-in">
+            <div class="glass-card p-6 md:p-8 rounded-3xl shadow-xl border border-indigo-100">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-6 border-b border-slate-200">
+                    <div>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full uppercase tracking-wider">
+                            Pusat Navigasi Belajar
+                        </span>
+                        <h2 class="font-heading text-2xl md:text-3xl font-black text-slate-900 mt-1">
+                            Pilih Modul Pembelajaran
+                        </h2>
+                        <p class="text-slate-600 text-sm">Pilih topik yang ingin kamu pelajari atau eksplorasi hari ini:</p>
+                    </div>
+                    <button onclick="goToMuka1()" class="px-4 py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-xl font-bold text-xs transition flex items-center gap-2 shadow">
+                        <i class="fa-solid fa-house"></i> Kembali ke Sampul
+                    </button>
+                </div>
+
+                <!-- Grid Buttons for Muka 2 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div onclick="navigateToSection('learn')" class="cursor-pointer bg-gradient-to-br from-indigo-600 to-indigo-800 text-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between group">
+                        <div class="flex justify-between items-start">
+                            <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl font-bold backdrop-blur">
+                                <i class="fa-solid fa-shapes text-indigo-100"></i>
+                            </div>
+                            <span class="bg-indigo-900/50 text-white text-xs font-bold px-3 py-1 rounded-full border border-indigo-300/30">Modul 1</span>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="font-heading text-xl font-bold group-hover:underline">1. Unsur-unsur Lingkaran</h3>
+                            <p class="text-indigo-100 text-xs mt-1 leading-relaxed">
+                                Visualisasi 8 Unsur: Titik Pusat, Jari-jari, Diameter, Busur, Tali Busur, Juring, Tembereng & Apotema.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-xs font-bold">
+                            <span>Eksplor Diagram</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
+                    </div>
+
+                    <div onclick="navigateToSection('realworld')" class="cursor-pointer bg-gradient-to-br from-emerald-600 to-teal-700 text-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between group">
+                        <div class="flex justify-between items-start">
+                            <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl font-bold backdrop-blur">
+                                <i class="fa-solid fa-pizza-slice text-emerald-100"></i>
+                            </div>
+                            <span class="bg-emerald-800/50 text-white text-xs font-bold px-3 py-1 rounded-full border border-emerald-300/30">Modul 2</span>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="font-heading text-xl font-bold group-hover:underline">2. Benda Sekitar Kita</h3>
+                            <p class="text-emerald-100 text-xs mt-1 leading-relaxed">
+                                Temukan penerapan unsur lingkaran pada pizza, roda sepeda, jam dinding, dan kue ulang tahun.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-xs font-bold">
+                            <span>Pelajari Benda</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
+                    </div>
+
+                    <div onclick="navigateToSection('challenge')" class="cursor-pointer bg-gradient-to-br from-blue-600 to-cyan-700 text-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between group">
+                        <div class="flex justify-between items-start">
+                            <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl font-bold backdrop-blur">
+                                <i class="fa-solid fa-calculator text-cyan-100"></i>
+                            </div>
+                            <span class="bg-blue-900/50 text-white text-xs font-bold px-3 py-1 rounded-full border border-blue-300/30">Modul 3</span>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="font-heading text-xl font-bold group-hover:underline">3. Tantangan r & d</h3>
+                            <p class="text-cyan-100 text-xs mt-1 leading-relaxed">
+                                Pahami hubungan d = 2r & r = d/2 serta uji kecepatan hitung dalam 10 soal acak.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-xs font-bold">
+                            <span>Uji Coba</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
+                    </div>
+
+                    <div onclick="navigateToSection('keliling')" class="cursor-pointer bg-gradient-to-br from-purple-600 to-purple-800 text-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between group">
+                        <div class="flex justify-between items-start">
+                            <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl font-bold backdrop-blur">
+                                <i class="fa-solid fa-ruler-horizontal text-purple-100"></i>
+                            </div>
+                            <span class="bg-purple-900/50 text-white text-xs font-bold px-3 py-1 rounded-full border border-purple-300/30">Modul 4</span>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="font-heading text-xl font-bold group-hover:underline">4. Keliling Lingkaran</h3>
+                            <p class="text-purple-100 text-xs mt-1 leading-relaxed">
+                                Pelajari rumus K = π × d, simulasi interaktif, dan latihan soal keliling.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-xs font-bold">
+                            <span>Simulasi & Latihan</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
+                    </div>
+
+                    <div onclick="navigateToSection('luas')" class="cursor-pointer bg-gradient-to-br from-amber-500 to-orange-600 text-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between group">
+                        <div class="flex justify-between items-start">
+                            <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl font-bold backdrop-blur">
+                                <i class="fa-solid fa-chart-pie text-amber-100"></i>
+                            </div>
+                            <span class="bg-amber-900/50 text-white text-xs font-bold px-3 py-1 rounded-full border border-amber-300/30">Modul 5</span>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="font-heading text-xl font-bold group-hover:underline">5. Luas Lingkaran</h3>
+                            <p class="text-amber-100 text-xs mt-1 leading-relaxed">
+                                Pelajari rumus Luas L = π × r², simulasi interaktif, dan latihan soal luas.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-xs font-bold">
+                            <span>Simulasi & Latihan</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
+                    </div>
+
+                    <div onclick="navigateToSection('quiz')" class="cursor-pointer bg-gradient-to-br from-rose-600 to-pink-700 text-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between group">
+                        <div class="flex justify-between items-start">
+                            <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl font-bold backdrop-blur">
+                                <i class="fa-solid fa-gamepad text-pink-100"></i>
+                            </div>
+                            <span class="bg-rose-900/50 text-white text-xs font-bold px-3 py-1 rounded-full border border-rose-300/30">Modul 6</span>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="font-heading text-xl font-bold group-hover:underline">6. Game dan Kuis Lingkaran</h3>
+                            <p class="text-pink-100 text-xs mt-1 leading-relaxed">
+                                Mainkan Game Duel / Grup 4 Pemain serta Kuis Interaktif Berpikir Kritis.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-xs font-bold">
+                            <span>Mulai Game & Kuis</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 1: LEARN -->
+        <section id="section-learn" class="tab-content hidden space-y-4 fade-in max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
+                <div class="md:col-span-6 glass-card p-4 rounded-2xl shadow-lg flex flex-col items-center justify-center text-center">
+                    <div class="w-full flex justify-between items-center mb-1">
+                        <h2 class="font-heading text-base md:text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-shapes text-indigo-600"></i> Diagram Lingkaran
+                        </h2>
+                        <span class="text-[10px] md:text-xs bg-indigo-100 text-indigo-800 font-bold px-2.5 py-0.5 rounded-full">Klik Gambar / Tombol</span>
+                    </div>
+
+                    <div class="relative w-full max-w-[220px] md:max-w-[240px] aspect-square my-1 flex items-center justify-center">
+                        <svg viewBox="0 0 400 400" class="w-full h-full drop-shadow-md">
+                            <circle cx="200" cy="200" r="140" fill="#f8fafc" stroke="#cbd5e1" stroke-width="4" />
+                            <path id="svg-juring" class="element-path" d="M 200 200 L 340 200 A 140 140 0 0 1 200 340 Z" fill="#3b82f6" fill-opacity="0.35" stroke="#2563eb" stroke-width="2" onclick="selectElement('juring')" />
+                            <path id="svg-tembereng" class="element-path" d="M 60 200 A 140 140 0 0 0 200 340 Z" fill="#f59e0b" fill-opacity="0.45" stroke="#d97706" stroke-width="2" onclick="selectElement('tembereng')" />
+                            <path id="svg-busur" class="element-path" d="M 340 200 A 140 140 0 0 0 200 60" fill="none" stroke="#ec4899" stroke-width="6" stroke-dasharray="0" onclick="selectElement('busur')" />
+                            <line id="svg-talibusur" class="element-path" x1="60" y1="200" x2="200" y2="340" stroke="#d97706" stroke-width="4" onclick="selectElement('talibusur')" />
+                            <line id="svg-diameter" class="element-path" x1="60" y1="200" x2="340" y2="200" stroke="#ef4444" stroke-width="4" stroke-dasharray="6,4" onclick="selectElement('diameter')" />
+                            <line id="svg-jarijari" class="element-path" x1="200" y1="200" x2="200" y2="60" stroke="#10b981" stroke-width="5" onclick="selectElement('jarijari')" />
+                            <line id="svg-apotema" class="element-path" x1="200" y1="200" x2="130" y2="270" stroke="#8b5cf6" stroke-width="4" stroke-dasharray="4,2" onclick="selectElement('apotema')" />
+                            <circle id="svg-pusat" class="element-path" cx="200" cy="200" r="8" fill="#1e1b4b" stroke="#ffffff" stroke-width="3" onclick="selectElement('pusat')" />
+
+                            <text x="205" y="190" font-weight="extrabold" font-size="16" fill="#1e1b4b">O</text>
+                            <text x="348" y="205" font-weight="bold" font-size="14" fill="#334155">A</text>
+                            <text x="195" y="50" font-weight="bold" font-size="14" fill="#334155">B</text>
+                            <text x="40" y="205" font-weight="bold" font-size="14" fill="#334155">C</text>
+                            <text x="195" y="360" font-weight="bold" font-size="14" fill="#334155">D</text>
+                        </svg>
+                    </div>
+
+                    <p class="text-[10px] md:text-xs text-slate-500 mt-1 italic">
+                        *Klik garis atau wilayah pada lingkaran di atas!
+                    </p>
+                </div>
+
+                <div class="md:col-span-6 glass-card p-4 rounded-2xl shadow-lg flex flex-col justify-center">
+                    <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                        <i class="fa-solid fa-hand-pointer text-indigo-500"></i> Pilih Unsur Lingkaran:
+                    </h3>
+                    <div id="element-btn-group" class="grid grid-cols-2 gap-2"></div>
+                </div>
+            </div>
+
+            <div id="info-card" class="glass-card p-4 md:p-5 rounded-2xl shadow-lg border-l-8 border-indigo-600 transition-all space-y-2">
+                <div class="flex items-center justify-between">
+                    <h3 id="info-title" class="font-heading text-lg md:text-xl font-bold text-slate-900">Juring Lingkaran</h3>
+                    <span id="info-symbol" class="text-xs font-extrabold px-3 py-1 bg-indigo-50 rounded-full text-indigo-600">Sektor</span>
+                </div>
+                <p id="info-desc" class="text-slate-600 text-xs md:text-sm leading-relaxed">
+                    Daerah di dalam lingkaran yang dibatasi oleh dua jari-jari dan satu busur lingkaran.
+                </p>
+                <div class="bg-indigo-50/80 p-2.5 rounded-xl border border-indigo-100 flex items-center gap-2">
+                    <span class="text-xs font-bold text-indigo-900 flex-shrink-0"><i class="fa-solid fa-lightbulb text-amber-500 mr-1"></i> Contoh Nyata:</span>
+                    <span id="info-realworld" class="text-xs text-indigo-800">Irisan potong pizza atau kue ulang tahun.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: REALWORLD -->
+        <section id="section-realworld" class="tab-content hidden space-y-6 fade-in">
+            <div class="glass-card p-6 md:p-8 rounded-3xl shadow-xl">
+                <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-6">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-600 bg-emerald-100 px-3 py-1 rounded-full uppercase tracking-wider">Kontekstual Kehidupan Nyata</span>
+                        <h2 class="font-heading text-2xl font-bold text-slate-900 mt-1">Lingkaran di Sekitar Kita</h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                    <button onclick="showRealWorldObject('pizza')" id="rw-btn-pizza" class="rw-tab p-3 rounded-2xl border-2 border-indigo-500 bg-indigo-50 text-indigo-900 font-bold text-xs transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-pizza-slice text-amber-500 text-lg"></i> Pizza
+                    </button>
+                    <button onclick="showRealWorldObject('sepeda')" id="rw-btn-sepeda" class="rw-tab p-3 rounded-2xl border-2 border-slate-200 bg-white text-slate-700 font-bold text-xs transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-bicycle text-blue-500 text-lg"></i> Roda Sepeda
+                    </button>
+                    <button onclick="showRealWorldObject('jam')" id="rw-btn-jam" class="rw-tab p-3 rounded-2xl border-2 border-slate-200 bg-white text-slate-700 font-bold text-xs transition flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-clock text-rose-500 text-lg"></i> Jam Dinding
+                    </button>
+                    <button onclick="showRealWorldObject('kue')" id="rw-btn-kue" class="rw-tab p-3 rounded-2xl border-2 border-slate-200 bg-white text-slate-700 font-bold text-xs transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cake-candles text-purple-500 text-lg"></i> Kue Tart
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-slate-900 text-white p-6 md:p-8 rounded-3xl shadow-inner">
+                    <div class="md:col-span-5 flex justify-center" id="rw-visual-box"></div>
+                    <div class="md:col-span-7 space-y-4">
+                        <h3 id="rw-title" class="font-heading text-2xl font-bold text-amber-400">Irisan Pizza Lezat</h3>
+                        <p id="rw-intro" class="text-xs md:text-sm text-slate-300 leading-relaxed">
+                            Ketika pizza dipotong dari titik pusat menuju tepi luar, setiap potongan mewakili konsep geometri lingkaran!
+                        </p>
+                        <div id="rw-mapping-list" class="space-y-2.5 pt-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: CHALLENGE R & D -->
+        <section id="section-challenge" class="tab-content hidden space-y-6 fade-in">
+            <div class="glass-card p-6 md:p-8 rounded-3xl shadow-xl max-w-3xl mx-auto">
+                <div class="flex flex-wrap justify-between items-center mb-6 pb-4 border-b border-slate-200 gap-3">
+                    <div>
+                        <span class="text-xs font-bold text-blue-600 bg-blue-100 px-3 py-1 rounded-full uppercase tracking-wider">Modul 3</span>
+                        <h2 class="font-heading text-xl md:text-2xl font-bold text-slate-800 mt-1">Tantangan r & d</h2>
+                    </div>
+                    <div class="flex items-center space-x-2 bg-indigo-50 px-4 py-2 rounded-2xl border border-indigo-200">
+                        <i class="fa-solid fa-star text-amber-400 text-lg animate-bounce"></i>
+                        <span class="text-sm font-bold text-indigo-900">Skor: <span id="challenge-score">0</span></span>
+                    </div>
+                    <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">Score Booster</span>
+                </div>
+
+                <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-4 mb-6 text-xs md:text-sm text-indigo-900 flex flex-col sm:flex-row justify-around gap-2 text-center font-bold">
+                    <div>Hubungan: <span class="text-indigo-600">r = 1/2 × d</span></div>
+                    <div>Hubungan: <span class="text-indigo-600">d = 2 × r</span></div>
+                </div>
+
+                <div id="challenge-game-box" class="bg-white border-2 border-indigo-100 rounded-2xl p-6 text-center shadow-inner">
+                    <span id="challenge-num-indicator" class="text-xs text-slate-500 uppercase tracking-widest font-bold">Soal #1 dari 10</span>
+                    <div id="challenge-question" class="text-xl md:text-2xl font-bold text-slate-800 my-4">
+                        Loading...
+                    </div>
+                    <div id="challenge-options" class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-md mx-auto my-4"></div>
+                    <div id="challenge-feedback" class="text-sm font-bold h-6"></div>
+                </div>
+
+                <div id="challenge-results" class="hidden text-center py-8">
+                    <div class="w-20 h-20 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-4 shadow-inner">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 id="challenge-result-title" class="font-heading text-2xl font-bold text-slate-800 mb-2">Selesai!</h3>
+                    <p id="challenge-result-desc" class="text-slate-600 text-sm mb-6">Kamu telah menyelesaikan tantangan.</p>
+                    <button onclick="initChallengeGame()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-sm shadow-md transition inline-flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-right"></i> Uji Coba
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: KELILING -->
+        <section id="section-keliling" class="tab-content hidden space-y-6 fade-in">
+            <div id="keliling-main-view" class="space-y-6">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    <div class="lg:col-span-6 glass-card p-6 md:p-8 rounded-3xl shadow-xl space-y-5">
+                        <div class="flex items-center space-x-3 border-b border-slate-200 pb-4">
+                            <div class="w-12 h-12 bg-purple-100 text-purple-700 rounded-2xl flex items-center justify-center text-2xl font-bold">
+                                <i class="fa-solid fa-ruler-horizontal"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-purple-600 uppercase tracking-wider">Modul 4</span>
+                                <h2 class="font-heading text-2xl font-bold text-slate-900">Keliling Lingkaran (K)</h2>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            <b>Keliling Lingkaran</b> adalah panjang seluruh garis lengkung yang membungkus atau mengelilingi daerah lingkaran.
+                        </p>
+                        <div class="bg-gradient-to-r from-purple-600 to-indigo-700 text-white p-5 rounded-2xl shadow-lg space-y-3">
+                            <h4 class="font-heading text-purple-200 font-bold text-sm uppercase tracking-wide">Rumus Utama Keliling Lingkaran:</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div class="bg-white/10 p-3 rounded-xl border border-white/20 text-center">
+                                    <span class="text-xs text-purple-100 block">Dengan Diameter (d):</span>
+                                    <span class="text-xl font-extrabold text-purple-200">K = π × d</span>
+                                </div>
+                                <div class="bg-white/10 p-3 rounded-xl border border-white/20 text-center">
+                                    <span class="text-xs text-purple-100 block">Dengan Jari-jari (r):</span>
+                                    <span class="text-xl font-extrabold text-purple-200">K = 2 × π × r</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <button onclick="openKelilingPractice()" class="w-full py-3.5 bg-purple-600 hover:bg-purple-700 text-white rounded-2xl font-bold text-sm shadow-md transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-pen-to-square"></i> Latihan Soal Keliling Lingkaran
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 glass-card p-6 md:p-8 rounded-3xl shadow-xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="font-heading text-lg font-bold text-slate-900">
+                                    <i class="fa-solid fa-sliders text-purple-600 mr-2"></i> Simulasi Interaktif Keliling
+                                </h3>
+                                <span class="text-xs bg-purple-100 text-purple-800 font-bold px-3 py-1 rounded-full">Real-Time</span>
+                            </div>
+
+                            <div class="space-y-4 bg-slate-50 p-4 rounded-2xl border border-slate-200 mb-6">
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                        <span>Jari-Jari (r): <span id="sim-r-val" class="text-purple-600 text-sm">7</span> cm</span>
+                                        <span>Diameter (d): <span id="sim-d-val" class="text-purple-600 text-sm">14</span> cm</span>
+                                    </div>
+                                    <input type="range" id="sim-r-slider" min="1" max="21" value="7" oninput="updateKelilingSim()" class="w-full accent-purple-600 cursor-pointer">
+                                </div>
+                            </div>
+
+                            <div class="w-full h-40 flex items-center justify-center bg-purple-50/50 rounded-2xl border border-purple-200 mb-4 overflow-hidden relative">
+                                <svg id="sim-k-svg" viewBox="0 0 200 200" class="w-36 h-36 transition-all duration-300 drop-shadow">
+                                    <circle cx="100" cy="100" r="80" fill="#f3e8ff" stroke="#9333ea" stroke-width="5"/>
+                                    <line x1="100" y1="100" x2="180" y2="100" stroke="#10b981" stroke-width="3" stroke-dasharray="3,3"/>
+                                    <circle cx="100" cy="100" r="4" fill="#1e1b4b"/>
+                                    <text x="135" y="90" font-size="12" font-weight="bold" fill="#059669">r</text>
+                                </svg>
+                            </div>
+
+                            <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl p-5 text-center space-y-2">
+                                <span class="text-xs font-bold text-purple-700 uppercase tracking-wider block">Hasil Perhitungan Keliling:</span>
+                                <div class="text-3xl font-black text-purple-900" id="sim-k-res">44.00 cm</div>
+                                <p id="sim-k-step" class="text-xs text-slate-600 font-mono bg-white p-2.5 rounded-xl border border-purple-100">
+                                    K = 2 × (22/7) × 7 = 44 cm
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="keliling-practice-view" class="hidden glass-card p-6 md:p-8 rounded-3xl shadow-xl max-w-2xl mx-auto space-y-6">
+                <div class="flex justify-between items-center border-b border-slate-200 pb-4">
+                    <div>
+                        <span class="text-xs font-bold text-purple-600 bg-purple-100 px-3 py-1 rounded-full uppercase tracking-wider">Latihan Soal</span>
+                        <h3 class="font-heading text-xl font-bold text-slate-900 mt-1">Keliling Lingkaran</h3>
+                    </div>
+                    <button onclick="closeKelilingPractice()" class="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 rounded-xl text-xs font-bold text-slate-700">
+                        <i class="fa-solid fa-arrow-left"></i> Kembali
+                    </button>
+                </div>
+                <div id="keliling-quiz-container" class="space-y-4"></div>
+                <div id="keliling-practice-results" class="hidden text-center py-6 space-y-4"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: LUAS -->
+        <section id="section-luas" class="tab-content hidden space-y-6 fade-in">
+            <div id="luas-main-view" class="space-y-6">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    <div class="lg:col-span-6 glass-card p-6 md:p-8 rounded-3xl shadow-xl space-y-5">
+                        <div class="flex items-center space-x-3 border-b border-slate-200 pb-4">
+                            <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center text-2xl font-bold">
+                                <i class="fa-solid fa-chart-pie"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Modul 5</span>
+                                <h2 class="font-heading text-2xl font-bold text-slate-900">Luas Lingkaran (L)</h2>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            <b>Luas Lingkaran</b> adalah luas daerah permukaan tertutup yang dibatasi oleh seluruh garis keliling lingkaran.
+                        </p>
+                        <div class="bg-gradient-to-r from-amber-600 to-orange-700 text-white p-5 rounded-2xl shadow-lg space-y-3">
+                            <h4 class="font-heading text-amber-200 font-bold text-sm uppercase tracking-wide">Rumus Utama Luas Lingkaran:</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div class="bg-white/10 p-3 rounded-xl border border-white/20 text-center">
+                                    <span class="text-xs text-amber-100 block">Dengan Jari-jari (r):</span>
+                                    <span class="text-xl font-extrabold text-amber-200">L = π × r²</span>
+                                </div>
+                                <div class="bg-white/10 p-3 rounded-xl border border-white/20 text-center">
+                                    <span class="text-xs text-amber-100 block">Dengan Diameter (d):</span>
+                                    <span class="text-xl font-extrabold text-amber-200">L = ¼ × π × d²</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <button onclick="openLuasPractice()" class="w-full py-3.5 bg-amber-600 hover:bg-amber-700 text-white rounded-2xl font-bold text-sm shadow-md transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-pen-to-square"></i> Latihan Soal Luas Lingkaran
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 glass-card p-6 md:p-8 rounded-3xl shadow-xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="font-heading text-lg font-bold text-slate-900">
+                                    <i class="fa-solid fa-sliders text-amber-600 mr-2"></i> Simulasi Interaktif Luas
+                                </h3>
+                                <span class="text-xs bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-full">Real-Time</span>
+                            </div>
+
+                            <div class="space-y-4 bg-slate-50 p-4 rounded-2xl border border-slate-200 mb-6">
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                        <span>Jari-Jari (r): <span id="sim-luas-r-val" class="text-amber-600 text-sm">7</span> cm</span>
+                                        <span>Diameter (d): <span id="sim-luas-d-val" class="text-amber-600 text-sm">14</span> cm</span>
+                                    </div>
+                                    <input type="range" id="sim-luas-r-slider" min="1" max="21" value="7" oninput="updateLuasSim()" class="w-full accent-amber-600 cursor-pointer">
+                                </div>
+                            </div>
+
+                            <div class="w-full h-40 flex items-center justify-center bg-amber-50/50 rounded-2xl border border-amber-200 mb-4 overflow-hidden relative">
+                                <svg id="sim-l-svg" viewBox="0 0 200 200" class="w-36 h-36 transition-all duration-300 drop-shadow">
+                                    <circle cx="100" cy="100" r="80" fill="url(#amberGrad)" stroke="#d97706" stroke-width="4"/>
+                                    <line x1="100" y1="100" x2="180" y2="100" stroke="#ffffff" stroke-width="3" stroke-dasharray="3,3"/>
+                                    <circle cx="100" cy="100" r="4" fill="#ffffff"/>
+                                    <text x="135" y="90" font-size="12" font-weight="bold" fill="#ffffff">r</text>
+                                    <defs>
+                                        <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#f59e0b" />
+                                            <stop offset="100%" stop-color="#ea580c" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+
+                            <div class="bg-amber-50 border-2 border-amber-200 rounded-2xl p-5 text-center space-y-2">
+                                <span class="text-xs font-bold text-amber-700 uppercase tracking-wider block">Hasil Perhitungan Luas:</span>
+                                <div class="text-3xl font-black text-amber-900" id="sim-luas-res">154.00 cm²</div>
+                                <p id="sim-luas-step" class="text-xs text-slate-600 font-mono bg-white p-2.5 rounded-xl border border-amber-100">
+                                    L = (22/7) × 7 × 7 = 154 cm²
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="luas-practice-view" class="hidden glass-card p-6 md:p-8 rounded-3xl shadow-xl max-w-2xl mx-auto space-y-6">
+                <div class="flex justify-between items-center border-b border-slate-200 pb-4">
+                    <div>
+                        <span class="text-xs font-bold text-amber-600 bg-amber-100 px-3 py-1 rounded-full uppercase tracking-wider">Latihan Soal</span>
+                        <h3 class="font-heading text-xl font-bold text-slate-900 mt-1">Luas Lingkaran</h3>
+                    </div>
+                    <button onclick="closeLuasPractice()" class="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 rounded-xl text-xs font-bold text-slate-700">
+                        <i class="fa-solid fa-arrow-left"></i> Kembali
+                    </button>
+                </div>
+                <div id="luas-quiz-container" class="space-y-4"></div>
+                <div id="luas-practice-results" class="hidden text-center py-6 space-y-4"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: GAME & KUIS -->
+        <section id="section-quiz" class="tab-content hidden space-y-6 fade-in">
+            <div id="m6-hub" class="glass-card p-6 md:p-8 rounded-3xl shadow-xl max-w-3xl mx-auto text-center space-y-6">
+                <div>
+                    <span class="text-xs font-bold text-rose-600 bg-rose-100 px-3 py-1 rounded-full uppercase tracking-wider">Modul 6</span>
+                    <h2 class="font-heading text-2xl md:text-3xl font-bold text-slate-900 mt-2">Game dan Kuis Lingkaran</h2>
+                    <p class="text-slate-600 text-sm mt-1">Pilih mode permainan atau kuis yang ingin kamu mainkan:</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <button onclick="openM6Mode('game')" class="p-6 bg-gradient-to-br from-indigo-600 to-indigo-800 hover:from-indigo-700 hover:to-indigo-900 text-white rounded-3xl shadow-lg transition transform hover:-translate-y-1 flex flex-col items-center justify-center gap-3">
+                        <i class="fa-solid fa-gamepad text-4xl text-amber-300"></i>
+                        <span class="font-heading text-xl font-bold">1. Game</span>
+                        <span class="text-xs text-indigo-200">Mode Duel 2 Pemain & Grup 4 Pemain</span>
+                    </button>
+                    <button onclick="openM6Mode('kuis')" class="p-6 bg-gradient-to-br from-rose-600 to-pink-700 hover:from-rose-700 hover:to-pink-800 text-white rounded-3xl shadow-lg transition transform hover:-translate-y-1 flex flex-col items-center justify-center gap-3">
+                        <i class="fa-solid fa-brain text-4xl text-amber-300"></i>
+                        <span class="font-heading text-xl font-bold">2. Kuis Interaktif</span>
+                        <span class="text-xs text-rose-200">10 Soal Cerita Kontekstual Berpikir Kritis</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="m6-game-hub" class="hidden glass-card p-6 md:p-8 rounded-3xl shadow-xl max-w-3xl mx-auto text-center space-y-6">
+                <div>
+                    <button onclick="backToM6Hub()" class="float-left px-3 py-1.5 bg-slate-200 hover:bg-slate-300 rounded-xl text-xs font-bold text-slate-700 mb-2">
+                        <i class="fa-solid fa-arrow-left"></i> Kembali
+                    </button>
+                    <span class="text-xs font-bold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full uppercase tracking-wider">Pilih Mode Game</span>
+                    <h2 class="font-heading text-2xl font-bold text-slate-900 mt-2">Mode Pertandingan</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <button onclick="startDuelGame()" class="p-6 bg-gradient-to-br from-blue-600 to-indigo-700 text-white rounded-3xl shadow-lg hover:shadow-xl transition flex flex-col items-center justify-center gap-2">
+                        <i class="fa-solid fa-user-ninja text-3xl text-amber-300"></i>
+                        <span class="font-heading text-lg font-bold">Duel (2 Pemain)</span>
+                        <span class="text-xs text-blue-100">3 Nyawa, 10 Soal Independent</span>
+                    </button>
+                    <button onclick="startGroupGame()" class="p-6 bg-gradient-to-br from-emerald-600 to-teal-700 text-white rounded-3xl shadow-lg hover:shadow-xl transition flex flex-col items-center justify-center gap-2">
+                        <i class="fa-solid fa-users-rectangle text-3xl text-amber-300"></i>
+                        <span class="font-heading text-lg font-bold">Grup (4 Pemain)</span>
+                        <span class="text-xs text-emerald-100">Berebut Jawab, Benar +100 / Salah -50</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 1. DUEL 2 PEMAIN VIEW -->
+            <div id="m6-duel-view" class="hidden glass-card p-6 md:p-8 rounded-3xl shadow-xl max-w-4xl mx-auto space-y-4">
+                <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+                    <button onclick="openM6Mode('game')" class="px-3 py-1 bg-slate-200 hover:bg-slate-300 rounded-xl text-xs font-bold text-slate-700">
+                        <i class="fa-solid fa-arrow-left"></i> Menu Game
+                    </button>
+                    <h3 class="font-heading text-lg font-bold text-slate-900">Duel 2 Pemain (10 Soal Independent)</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Player 1 -->
+                    <div class="bg-indigo-50 border-2 border-indigo-200 p-5 rounded-2xl space-y-3 shadow-sm">
+                        <div class="flex justify-between items-center font-bold text-indigo-900">
+                            <span>Pemain 1</span>
+                            <div>Nyawa: <span id="p1-lives">❤️❤️❤️</span> | Skor: <span id="p1-score">0</span></div>
+                        </div>
+                        <div id="p1-progress" class="text-xs font-bold text-indigo-700">Soal #1 dari 10</div>
+                        <div id="duel-q-text-p1" class="text-sm font-bold text-slate-800 bg-white p-3 rounded-xl border border-indigo-100 min-h-[60px] flex items-center justify-center text-center">Loading...</div>
+                        <div id="duel-opts-p1" class="grid grid-cols-2 gap-2"></div>
+                    </div>
+
+                    <!-- Player 2 -->
+                    <div class="bg-rose-50 border-2 border-rose-200 p-5 rounded-2xl space-y-3 shadow-sm">
+                        <div class="flex justify-between items-center font-bold text-rose-900">
+                            <span>Pemain 2</span>
+                            <div>Nyawa: <span id="p2-lives">❤️❤️❤️</span> | Skor: <span id="p2-score">0</span></div>
+                        </div>
+                        <div id="p2-progress" class="text-xs font-bold text-rose-700">Soal #1 dari 10</div>
+                        <div id="duel-q-text-p2" class="text-sm font-bold text-slate-800 bg-white p-3 rounded-xl border border-rose-100 min-h-[60px] flex items-center justify-center text-center">Loading...</div>
+                        <div id="duel-opts-p2" class="grid grid-cols-2 gap-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Duel Results Modal / Screen -->
+            <div id="m6-duel-results" class="hidden glass-card p-8 rounded-3xl shadow-xl max-w-lg mx-auto text-center space-y-4">
+                <div class="w-16 h-16 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h3 class="font-heading text-2xl font-bold text-slate-900">Hasil Akhir Duel!</h3>
+                <div id="duel-winner-announcement" class="text-lg font-black text-indigo-900 bg-indigo-50 p-4 rounded-2xl border border-indigo-200"></div>
+                <div class="flex justify-around text-xs font-bold text-slate-600 bg-slate-50 p-3 rounded-xl">
+                    <div>Pemain 1: <span id="duel-res-p1-score" class="text-indigo-600 text-sm font-black">0</span></div>
+                    <div>Pemain 2: <span id="duel-res-p2-score" class="text-rose-600 text-sm font-black">0</span></div>
+                </div>
+                <button onclick="startDuelGame()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-xs shadow transition inline-flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-right"></i> Main Duel Lagi
+                </button>
+            </div>
+
+            <!-- 2. GRUP 4 PEMAIN VIEW (Buzzer Rebutan with +100 / -50) -->
+            <div id="m6-group-view" class="hidden glass-card p-6 md:p-8 rounded-3xl shadow-xl max-w-3xl mx-auto space-y-4">
+                <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+                    <button onclick="openM6Mode('game')" class="px-3 py-1 bg-slate-200 hover:bg-slate-300 rounded-xl text-xs font-bold text-slate-700">
+                        <i class="fa-solid fa-arrow-left"></i> Menu Game
+                    </button>
+                    <h3 class="font-heading text-lg font-bold text-slate-900">Grup 4 Pemain (Soal <span id="grp-q-num">1</span>/10)</h3>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-bold">
+                    <div id="g1-box" class="bg-indigo-100 p-2 rounded-xl text-indigo-900 border border-indigo-200">Kelompok 1<br><span id="g1-score" class="text-sm font-black">0</span></div>
+                    <div id="g2-box" class="bg-emerald-100 p-2 rounded-xl text-emerald-900 border border-emerald-200">Kelompok 2<br><span id="g2-score" class="text-sm font-black">0</span></div>
+                    <div id="g3-box" class="bg-amber-100 p-2 rounded-xl text-amber-900 border border-amber-200">Kelompok 3<br><span id="g3-score" class="text-sm font-black">0</span></div>
+                    <div id="g4-box" class="bg-purple-100 p-2 rounded-xl text-purple-900 border border-purple-200">Kelompok 4<br><span id="g4-score" class="text-sm font-black">0</span></div>
+                </div>
+
+                <div class="bg-white border-2 border-slate-200 p-5 rounded-2xl text-center space-y-3 shadow-inner">
+                    <div id="grp-question" class="font-heading text-base md:text-lg font-bold text-slate-900">Loading soal...</div>
+                    <div id="grp-options" class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-lg mx-auto"></div>
+                    <div id="grp-feedback" class="text-xs font-bold h-6 text-indigo-700"></div>
+                    
+                    <div class="pt-3 border-t border-slate-100 space-y-2">
+                        <p class="text-xs text-slate-600 font-bold" id="grp-action-label">Tekan Tombol Rebutan Kelompok yang Ingin Menjawab (Benar +100, Salah -50):</p>
+                        <div class="flex flex-wrap justify-center gap-2" id="grp-buzzer-buttons">
+                            <button id="grp-btn-1" onclick="tryGroupBuzzer(1)" class="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow">Kelompok 1 Jawab</button>
+                            <button id="grp-btn-2" onclick="tryGroupBuzzer(2)" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow">Kelompok 2 Jawab</button>
+                            <button id="grp-btn-3" onclick="tryGroupBuzzer(3)" class="px-3.5 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold shadow">Kelompok 3 Jawab</button>
+                            <button id="grp-btn-4" onclick="tryGroupBuzzer(4)" class="px-3.5 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold shadow">Kelompok 4 Jawab</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group Results Modal -->
+            <div id="m6-group-results" class="hidden glass-card p-8 rounded-3xl shadow-xl max-w-lg mx-auto text-center space-y-4">
+                <div class="w-16 h-16 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h3 class="font-heading text-2xl font-bold text-slate-900">Hasil Akhir Grup!</h3>
+                <div id="group-winner-announcement" class="text-lg font-black text-emerald-900 bg-emerald-50 p-4 rounded-2xl border border-emerald-200"></div>
+                <button onclick="startGroupGame()" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-xs shadow transition inline-flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-right"></i> Main Grup Lagi
+                </button>
+            </div>
+
+            <!-- 3. KUIS INTERAKTIF VIEW -->
+            <div id="m6-kuis-view" class="hidden glass-card p-6 md:p-8 rounded-3xl shadow-xl max-w-3xl mx-auto space-y-5">
+                <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+                    <button onclick="backToM6Hub()" class="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 rounded-xl text-xs font-bold text-slate-700">
+                        <i class="fa-solid fa-arrow-left"></i> Menu Utama Modul 6
+                    </button>
+                    <span class="text-xs font-bold text-rose-600">Soal <span id="m6-k-num">1</span> / 10 | Skor: <span id="m6-k-score">0</span></span>
+                </div>
+
+                <div class="bg-rose-50 border border-rose-200 rounded-2xl p-5 text-center space-y-3">
+                    <span id="m6-k-badge" class="inline-block bg-white text-rose-700 text-xs font-bold px-3 py-1 rounded-full shadow-sm">Cerita Kontekstual</span>
+                    <h3 id="m6-k-text" class="font-heading text-base md:text-lg font-bold text-slate-900 leading-snug">Loading...</h3>
+                </div>
+
+                <div id="m6-k-options" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+                <div id="m6-k-feedback" class="hidden p-3 rounded-2xl text-center font-bold text-xs"></div>
+
+                <div class="flex justify-end">
+                    <button id="m6-k-next-btn" onclick="nextM6Kuis()" class="hidden px-6 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-bold text-xs shadow transition">
+                        Lanjut <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Kuis Completion Screen -->
+            <div id="m6-k-results" class="hidden glass-card p-8 rounded-3xl shadow-xl max-w-lg mx-auto text-center space-y-4">
+                <div class="w-16 h-16 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <h3 class="font-heading text-2xl font-bold text-slate-900">Kuis Selesai!</h3>
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 max-w-xs mx-auto">
+                    <span class="text-xs text-slate-500 font-bold block">Skor Akhir Kamu</span>
+                    <span id="m6-k-final-score" class="text-3xl font-black text-rose-600">0</span> / 100
+                </div>
+                <p id="m6-k-reward-msg" class="text-sm font-bold text-slate-700 px-2 leading-relaxed"></p>
+                <button onclick="startM6Kuis()" class="px-6 py-3 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-bold text-xs shadow transition inline-flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-right"></i> Uji Coba Lagi
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-6xl mx-auto px-4 mt-12 text-center text-slate-600 text-xs font-semibold space-y-1">
+        <p>© 2026 Anatomi Lingkaran - Matematika SMP</p>
+        <p class="text-indigo-600 font-bold">Sang Guru</p>
+    </footer>
+
+    <!-- MODAL TUJUAN PEMBELAJARAN -->
+    <div id="tujuan-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="glass-card max-w-2xl w-full bg-white rounded-3xl p-6 md:p-8 shadow-2xl relative border border-slate-200 animate-in fade-in zoom-in duration-200">
+            <button onclick="closeTujuanModal()" class="absolute top-5 right-5 w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center font-bold transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="flex items-center space-x-3 mb-5 border-b border-slate-100 pb-4">
+                <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-2xl font-bold">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-amber-600 uppercase tracking-wide">Target Capaian Pembelajaran (CP)</span>
+                    <h3 class="font-heading text-xl font-bold text-slate-900">Tujuan Pembelajaran (TP) Kelas 9</h3>
+                </div>
+            </div>
+
+            <div class="space-y-3 text-xs md:text-sm text-slate-700 max-h-[60vh] overflow-y-auto pr-1">
+                <div class="flex items-start space-x-3 bg-indigo-50/60 p-3.5 rounded-2xl border border-indigo-100">
+                    <span class="bg-indigo-600 text-white font-extrabold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-xs mt-0.5">1</span>
+                    <div>
+                        <b class="text-indigo-900 block mb-0.5">Memahami Definisi & 8 Unsur Lingkaran:</b>
+                        <p class="text-slate-600">Peserta didik mampu mengidentifikasi dan membedakan 8 unsur utama lingkaran melalui diagram geometri interaktif.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start space-x-3 bg-emerald-50/60 p-3.5 rounded-2xl border border-emerald-100">
+                    <span class="bg-emerald-600 text-white font-extrabold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-xs mt-0.5">2</span>
+                    <div>
+                        <b class="text-emerald-900 block mb-0.5">Mengaitkan dengan Objek Nyata:</b>
+                        <p class="text-slate-600">Peserta didik mampu menganalisis penerapan unsur-unsur lingkaran pada benda sehari-hari.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start space-x-3 bg-purple-50/60 p-3.5 rounded-2xl border border-purple-100">
+                    <span class="bg-purple-600 text-white font-extrabold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-xs mt-0.5">3</span>
+                    <div>
+                        <b class="text-purple-900 block mb-0.5">Menghitung Keliling & Luas:</b>
+                        <p class="text-slate-600">Peserta didik dapat menghitung keliling dan luas lingkaran serta menyelesaikan latihan soal secara akurat.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
+                <button onclick="closeTujuanModal()" class="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl shadow transition">
+                    Saya Mengerti
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC & DATA -->
+    <script>
+        function playSound(type) {
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!AudioCtx) return;
+                const ctx = new AudioCtx();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                if (type === 'click') {
+                    osc.frequency.setValueAtTime(400, ctx.currentTime);
+                    gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+                    osc.start(); osc.stop(ctx.currentTime + 0.05);
+                } else if (type === 'correct') {
+                    osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+                    osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.08);
+                    gain.gain.setValueAtTime(0.12, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+                    osc.start(); osc.stop(ctx.currentTime + 0.25);
+                } else if (type === 'wrong') {
+                    osc.frequency.setValueAtTime(220, ctx.currentTime);
+                    osc.frequency.setValueAtTime(180, ctx.currentTime + 0.08);
+                    gain.gain.setValueAtTime(0.15, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+                    osc.start(); osc.stop(ctx.currentTime + 0.25);
+                }
+            } catch(e) {}
+        }
+
+        const circleElements = {
+            pusat: { title: 'Titik Pusat (O)', symbol: 'Titik Tengah', color: '#1e1b4b', desc: 'Titik yang berada tepat di **tengah-tengah lingkaran** dan berjarak sama ke semua titik tepi.', realworld: 'As tengah roda atau poros jarum jam.' },
+            jarijari: { title: 'Jari-Jari (r)', symbol: 'Garis Radius', color: '#10b981', desc: 'Garis lurus yang menghubungkan **titik pusat** dengan **titik pada kurva lingkaran** (r = d/2).', realworld: 'Jeruji besi pada roda sepeda.' },
+            diameter: { title: 'Diameter (d)', symbol: 'Garis Tengah', color: '#ef4444', desc: 'Garis lurus yang menghubungkan dua titik pada kurva lingkaran dan **melalui titik pusat** (d = 2r).', realworld: 'Garis tengah lapangan sepak bola melingkar.' },
+            talibusur: { title: 'Tali Busur', symbol: 'Garis Lurus', color: '#d97706', desc: 'Garis lurus yang menghubungkan dua titik pada kurva lingkaran tanpa harus melalui titik pusat.', realworld: 'Senar atau tali pada busur panah.' },
+            busur: { title: 'Busur Lingkaran', symbol: 'Garis Lengkung', color: '#ec4899', desc: 'Garis lengkung yang merupakan bagian dari **keliling tepi lingkaran**.', realworld: 'Lengkungan pelangi atau bentuk busur panah.' },
+            juring: { title: 'Juring Lingkaran (Sektor)', symbol: 'Daerah (Sektor)', color: '#3b82f6', desc: 'Daerah di dalam lingkaran yang dibatasi oleh **dua jari-jari** dan **satu busur** lingkaran.', realworld: 'Potongan irisan pizza atau irisan kue ulang tahun.' },
+            tembereng: { title: 'Tembereng Lingkaran', symbol: 'Daerah (Segmen)', color: '#f59e0b', desc: 'Daerah di dalam lingkaran yang dibatasi oleh **sebuah tali busur** dan **busur** lingkaran.', realworld: 'Potongan samping mangkuk atau irisan buah semangka.' },
+            apotema: { title: 'Apotema', symbol: 'Garis Tegak Lurus', color: '#8b5cf6', desc: 'Garis terpendek yang menghubungkan titik pusat lingkaran secara **tegak lurus** dengan tali busur.', realworld: 'Jarak terpendek dari pusat lapangan ke garis batas.' }
+        };
+
+        const realWorldData = {
+            pizza: {
+                title: 'Irisan Pizza Lezat',
+                intro: 'Ketika pizza dipotong dari pusat menuju tepi luar, potongan ini memperlihatkan unsur geometri lingkaran.',
+                visualSvg: `<svg viewBox="0 0 200 200" class="w-48 h-48 drop-shadow-lg"><circle cx="100" cy="100" r="80" fill="#f59e0b" stroke="#d97706" stroke-width="8"/><path d="M 100 100 L 180 100 A 80 80 0 0 1 100 180 Z" fill="#ef4444" stroke="#ffffff" stroke-width="3"/><circle cx="100" cy="100" r="6" fill="#78350f"/><circle cx="130" cy="130" r="8" fill="#dc2626"/><circle cx="150" cy="115" r="6" fill="#dc2626"/></svg>`,
+                mappings: [
+                    { part: '1 Potongan Irisan Pizza', element: 'Juring Lingkaran', icon: 'fa-pizza-slice', color: 'text-amber-400' },
+                    { part: 'Kerak Tepung Tepi Irisan', element: 'Busur Lingkaran', icon: 'fa-circle-notch', color: 'text-rose-400' },
+                    { part: 'Sisi Lurus Potongan Pisau', element: 'Jari-Jari (r)', icon: 'fa-ruler text-emerald-400', color: 'text-emerald-400' }
+                ]
+            },
+            sepeda: {
+                title: 'Roda Sepeda Balap',
+                intro: 'Roda sepeda memanfaatkan prinsip geometri lingkaran untuk keseimbangan dan perputaran yang mulus.',
+                visualSvg: `<svg viewBox="0 0 200 200" class="w-48 h-48 drop-shadow-lg"><circle cx="100" cy="100" r="80" fill="none" stroke="#334155" stroke-width="10"/><circle cx="100" cy="100" r="15" fill="#94a3b8"/><line x1="100" y1="20" x2="100" y2="180" stroke="#cbd5e1" stroke-width="3"/><line x1="20" y1="100" x2="180" y2="100" stroke="#cbd5e1" stroke-width="3"/><line x1="43" y1="43" x2="157" y2="157" stroke="#cbd5e1" stroke-width="2"/><line x1="157" y1="43" x2="43" y2="157" stroke="#cbd5e1" stroke-width="2"/></svg>`,
+                mappings: [
+                    { part: 'Setiap Jeruji Besi (Pusat ke Velg)', element: 'Jari-Jari (r)', icon: 'fa-grip-lines-vertical', color: 'text-emerald-400' },
+                    { part: 'Garis Lurus Jeruji Membelah Roda', element: 'Diameter (d)', icon: 'fa-arrows-left-right', color: 'text-rose-400' },
+                    { part: 'Poros As Tengah Roda', element: 'Titik Pusat (O)', icon: 'fa-dot-circle', color: 'text-indigo-400' }
+                ]
+            },
+            jam: {
+                title: 'Jam Dinding Melingkar',
+                intro: 'Jarum jam berputar mengelilingi titik pusat dan membentuk sudut juring yang berbeda setiap jamnya.',
+                visualSvg: `<svg viewBox="0 0 200 200" class="w-48 h-48 drop-shadow-lg"><circle cx="100" cy="100" r="80" fill="#ffffff" stroke="#1e293b" stroke-width="8"/><circle cx="100" cy="100" r="6" fill="#ef4444"/><line x1="100" y1="100" x2="100" y2="40" stroke="#1e293b" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="140" y2="100" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/></svg>`,
+                mappings: [
+                    { part: 'Panjang Jarum Jam', element: 'Jari-Jari (r)', icon: 'fa-clock', color: 'text-emerald-400' },
+                    { part: 'Ruang Antara Jarum Jam & Menit', element: 'Juring Lingkaran', icon: 'fa-pie-chart', color: 'text-amber-400' },
+                    { part: 'Pinggiran Bingkai Jam', element: 'Keliling Lingkaran', icon: 'fa-circle-notch', color: 'text-purple-400' }
+                ]
+            },
+            kue: {
+                title: 'Kue Ulang Tahun',
+                intro: 'Kue ulang tahun melingkar sering kali dipotong secara lurus maupun dalam bentuk sektor irisan.',
+                visualSvg: `<svg viewBox="0 0 200 200" class="w-48 h-48 drop-shadow-lg"><circle cx="100" cy="100" r="80" fill="#f472b6" stroke="#db2777" stroke-width="6"/><path d="M 40 140 L 160 140" stroke="#ffffff" stroke-width="5" stroke-dasharray="4,4"/><path d="M 40 140 A 80 80 0 0 0 160 140 Z" fill="#ec4899" opacity="0.6"/></svg>`,
+                mappings: [
+                    { part: 'Potongan Garis Lurus Samping', element: 'Tali Busur', icon: 'fa-slash', color: 'text-amber-400' },
+                    { part: 'Daerah Kecil Samping Potongan Lurus', element: 'Tembereng', icon: 'fa-shapes', color: 'text-pink-400' }
+                ]
+            }
+        };
+
+        function goToMuka1() {
+            playSound('click');
+            document.getElementById('muka-1').classList.remove('hidden');
+            document.getElementById('muka-2').classList.add('hidden');
+            document.getElementById('top-nav-bar').classList.add('hidden');
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goToMuka2() {
+            playSound('click');
+            document.getElementById('muka-1').classList.add('hidden');
+            document.getElementById('muka-2').classList.remove('hidden');
+            document.getElementById('top-nav-bar').classList.add('hidden');
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function navigateToSection(sectionTab) {
+            document.getElementById('muka-1').classList.add('hidden');
+            document.getElementById('muka-2').classList.add('hidden');
+            switchTab(sectionTab);
+        }
+
+        function openTujuanModal() {
+            playSound('click');
+            document.getElementById('tujuan-modal').classList.remove('hidden');
+        }
+
+        function closeTujuanModal() {
+            playSound('click');
+            document.getElementById('tujuan-modal').classList.add('hidden');
+        }
+
+        function switchTab(tabName) {
+            playSound('click');
+            document.getElementById('top-nav-bar').classList.remove('hidden');
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+
+            const target = document.getElementById(`section-${tabName}`);
+            if (target) target.classList.remove('hidden');
+
+            if (tabName === 'challenge') initChallengeGame();
+            if (tabName === 'keliling') closeKelilingPractice();
+            if (tabName === 'luas') closeLuasPractice();
+            if (tabName === 'quiz') backToM6Hub();
+
+            window.scrollTo({ top: 120, behavior: 'smooth' });
+        }
+
+        function updateKelilingSim() {
+            const r = parseFloat(document.getElementById('sim-r-slider').value) || 7;
+            const d = r * 2;
+            let k = 0;
+            let stepText = "";
+
+            if (r % 7 === 0) {
+                k = (22 / 7) * d;
+                stepText = `K = 2 × (22/7) × ${r} = ${k.toFixed(0)} cm`;
+            } else {
+                k = 2 * 3.14159 * r;
+                stepText = `K = 2 × 3,14 × ${r} = ${k.toFixed(2)} cm`;
+            }
+
+            document.getElementById('sim-r-val').innerText = r;
+            document.getElementById('sim-d-val').innerText = d;
+            document.getElementById('sim-k-res').innerText = `${k.toFixed(2)} cm`;
+            document.getElementById('sim-k-step').innerText = stepText;
+
+            const svgCircle = document.querySelector('#sim-k-svg circle');
+            const svgLine = document.querySelector('#sim-k-svg line');
+            if (svgCircle) {
+                const newR = Math.max(25, Math.min(90, r * 4));
+                svgCircle.setAttribute('r', newR);
+                if (svgLine) svgLine.setAttribute('x2', 100 + newR);
+            }
+        }
+
+        function updateLuasSim() {
+            const r = parseFloat(document.getElementById('sim-luas-r-slider').value) || 7;
+            const d = r * 2;
+            let luas = 0;
+            let stepText = "";
+
+            if (r % 7 === 0) {
+                luas = (22 / 7) * r * r;
+                stepText = `L = (22/7) × ${r} × ${r} = ${luas.toFixed(0)} cm²`;
+            } else {
+                luas = 3.14159 * r * r;
+                stepText = `L = 3,14 × ${r} × ${r} = ${luas.toFixed(2)} cm²`;
+            }
+
+            document.getElementById('sim-luas-r-val').innerText = r;
+            document.getElementById('sim-luas-d-val').innerText = d;
+            document.getElementById('sim-luas-res').innerText = `${luas.toFixed(2)} cm²`;
+            document.getElementById('sim-luas-step').innerText = stepText;
+
+            const svgCircle = document.querySelector('#sim-l-svg circle');
+            const svgLine = document.querySelector('#sim-l-svg line');
+            if (svgCircle) {
+                const newR = Math.max(25, Math.min(90, r * 4));
+                svgCircle.setAttribute('r', newR);
+                if (svgLine) svgLine.setAttribute('x2', 100 + newR);
+            }
+        }
+
+        function renderElementButtons() {
+            const container = document.getElementById('element-btn-group');
+            if(!container) return;
+            container.innerHTML = '';
+            Object.keys(circleElements).forEach(key => {
+                const item = circleElements[key];
+                const btn = document.createElement('button');
+                btn.id = `btn-elem-${key}`;
+                btn.className = `p-2.5 text-left rounded-xl border border-slate-200 hover:border-indigo-400 text-xs font-bold transition flex items-center justify-between bg-white text-slate-700 hover:shadow-sm`;
+                btn.onclick = () => selectElement(key);
+                btn.innerHTML = `<span class="truncate">${item.title}</span><span class="w-3 h-3 rounded-full flex-shrink-0" style="background-color: ${item.color}"></span>`;
+                container.appendChild(btn);
+            });
+        }
+
+        function selectElement(key) {
+            playSound('click');
+            const data = circleElements[key];
+            if (!data) return;
+            document.getElementById('info-card').style.borderColor = data.color;
+            document.getElementById('info-title').innerText = data.title;
+            document.getElementById('info-symbol').innerText = data.symbol;
+            document.getElementById('info-symbol').style.color = data.color;
+            document.getElementById('info-desc').innerHTML = data.desc.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+            document.getElementById('info-realworld').innerText = data.realworld;
+
+            Object.keys(circleElements).forEach(k => {
+                const b = document.getElementById(`btn-elem-${k}`);
+                if (b) {
+                    if (k === key) b.classList.add('ring-2', 'ring-indigo-500', 'bg-indigo-50');
+                    else b.classList.remove('ring-2', 'ring-indigo-500', 'bg-indigo-50');
+                }
+            });
+
+            document.querySelectorAll('.element-path').forEach(p => {
+                p.style.opacity = '0.4';
+                p.style.strokeWidth = '';
+            });
+            const activeSvg = document.getElementById(`svg-${key}`);
+            if (activeSvg) {
+                activeSvg.style.opacity = '1';
+                if (key === 'busur') activeSvg.style.strokeWidth = '8';
+                if (key === 'jarijari' || key === 'diameter') activeSvg.style.strokeWidth = '6';
+            }
+        }
+
+        function showRealWorldObject(objKey) {
+            playSound('click');
+            const data = realWorldData[objKey];
+            if(!data) return;
+            document.querySelectorAll('.rw-tab').forEach(tab => {
+                tab.classList.remove('border-indigo-500', 'bg-indigo-50', 'text-indigo-900');
+                tab.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
+            });
+            const activeTab = document.getElementById(`rw-btn-${objKey}`);
+            if(activeTab) {
+                activeTab.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
+                activeTab.classList.add('border-indigo-500', 'bg-indigo-50', 'text-indigo-900');
+            }
+            document.getElementById('rw-visual-box').innerHTML = data.visualSvg;
+            document.getElementById('rw-title').innerText = data.title;
+            document.getElementById('rw-intro').innerText = data.intro;
+            const mapContainer = document.getElementById('rw-mapping-list');
+            mapContainer.innerHTML = '';
+            data.mappings.forEach(m => {
+                const div = document.createElement('div');
+                div.className = 'bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10 flex items-center justify-between';
+                div.innerHTML = `<div class="flex items-center space-x-3"><i class="fa-solid ${m.icon} ${m.color} text-lg"></i><span class="text-xs font-semibold text-slate-200">${m.part}</span></div><span class="text-xs font-bold bg-amber-400 text-slate-900 px-2.5 py-1 rounded-lg">${m.element}</span>`;
+                mapContainer.appendChild(div);
+            });
+        }
+
+        // TANTANGAN R & D
+        let challengeQuestions = [];
+        let challengeIdx = 0;
+        let challengeScore = 0;
+
+        function initChallengeGame() {
+            challengeIdx = 0;
+            challengeScore = 0;
+            document.getElementById('challenge-score').innerText = challengeScore;
+            document.getElementById('challenge-results').classList.add('hidden');
+            document.getElementById('challenge-game-box').classList.remove('hidden');
+
+            const pool = [
+                { q: "Sebuah lingkaran memiliki jari-jari r = 7 cm. Berapakah diameternya (d)?", opts: ["14 cm", "7 cm", "21 cm", "28 cm"], ans: 0 },
+                { q: "Sebuah lingkaran memiliki diameter d = 20 cm. Berapakah jari-jarinya (r)?", opts: ["10 cm", "20 cm", "40 cm", "5 cm"], ans: 0 },
+                { q: "Jika panjang jari-jari (r) adalah 12.5 cm, berapakah diameter (d)?", opts: ["25 cm", "12.5 cm", "50 cm", "24 cm"], ans: 0 },
+                { q: "Diameter sebuah roda adalah 42 cm. Berapakah panjang jari-jarinya (r)?", opts: ["21 cm", "42 cm", "84 cm", "14 cm"], ans: 0 },
+                { q: "Sebuah jam dinding memiliki jari-jari r = 15 cm. Berapakah diameternya (d)?", opts: ["30 cm", "15 cm", "45 cm", "60 cm"], ans: 0 },
+                { q: "Jika d = 56 cm, berapakah nilai jari-jari (r)?", opts: ["28 cm", "56 cm", "14 cm", "22 cm"], ans: 0 },
+                { q: "Jari-jari lingkaran kolam adalah 9 cm. Berapakah diameternya?", opts: ["18 cm", "9 cm", "36 cm", "27 cm"], ans: 0 },
+                { q: "Diameter lingkaran meja adalah 100 cm. Berapakah jari-jarinya?", opts: ["50 cm", "100 cm", "25 cm", "200 cm"], ans: 0 },
+                { q: "Jika r = 3.5 cm, berapakah d?", opts: ["7 cm", "3.5 cm", "14 cm", "10.5 cm"], ans: 0 },
+                { q: "Jika d = 14 cm, berapakah r?", opts: ["7 cm", "14 cm", "28 cm", "3.5 cm"], ans: 0 },
+                { q: "Jika r = 21 cm, berapakah d?", opts: ["42 cm", "21 cm", "84 cm", "63 cm"], ans: 0 },
+                { q: "Jika d = 8 cm, berapakah r?", opts: ["4 cm", "8 cm", "16 cm", "2 cm"], ans: 0 }
+            ];
+
+            challengeQuestions = pool.sort(() => Math.random() - 0.5).slice(0, 10);
+            renderChallengeQuestion();
+        }
+
+        function renderChallengeQuestion() {
+            if (challengeIdx >= challengeQuestions.length) {
+                showChallengeResults();
+                return;
+            }
+            const item = challengeQuestions[challengeIdx];
+            document.getElementById('challenge-num-indicator').innerText = `Soal #${challengeIdx + 1} dari 10`;
+            document.getElementById('challenge-question').innerHTML = item.q;
+            document.getElementById('challenge-feedback').innerText = '';
+
+            let shuffledOpts = [...item.opts];
+            const correctText = item.opts[item.ans];
+            shuffledOpts.sort(() => Math.random() - 0.5);
+            const newCorrectIdx = shuffledOpts.indexOf(correctText);
+
+            const optBox = document.getElementById('challenge-options');
+            optBox.innerHTML = '';
+            shuffledOpts.forEach((optText, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'py-3 px-4 bg-indigo-50 border-2 border-indigo-200 hover:border-indigo-500 rounded-xl font-bold text-indigo-900 hover:bg-indigo-100 transition';
+                btn.innerText = optText;
+                btn.onclick = () => {
+                    Array.from(optBox.children).forEach(b => b.disabled = true);
+                    if (oIdx === newCorrectIdx) {
+                        playSound('correct');
+                        challengeScore += 10;
+                        document.getElementById('challenge-score').innerText = challengeScore;
+                        document.getElementById('challenge-feedback').className = 'text-sm font-bold text-emerald-600';
+                        document.getElementById('challenge-feedback').innerText = '🎉 Benar! +10 Poin';
+                    } else {
+                        playSound('wrong');
+                        document.getElementById('challenge-feedback').className = 'text-sm font-bold text-rose-600';
+                        document.getElementById('challenge-feedback').innerText = '❌ Kurang tepat!';
+                    }
+                    setTimeout(() => {
+                        challengeIdx++;
+                        renderChallengeQuestion();
+                    }, 1000);
+                };
+                optBox.appendChild(btn);
+            });
+        }
+
+        function showChallengeResults() {
+            document.getElementById('challenge-game-box').classList.add('hidden');
+            document.getElementById('challenge-results').classList.remove('hidden');
+            const titleEl = document.getElementById('challenge-result-title');
+            const descEl = document.getElementById('challenge-result-desc');
+            if (challengeScore >= 80) {
+                titleEl.innerText = "Selamat! 🎉";
+                descEl.innerText = `Luar biasa! Skor kamu ${challengeScore} dari 100. Pertahankan prestasi belajarmu!`;
+            } else {
+                titleEl.innerText = "Tetap Semangat! 💪";
+                descEl.innerText = `Skor kamu ${challengeScore} dari 100. Ayo terus berlatih dan coba lagi agar semakin mahir!`;
+            }
+        }
+
+        // PRACTICE KELILING
+        let kelilingPracticeData = [];
+        let kelilingIdx = 0;
+        let kelilingScore = 0;
+
+        function openKelilingPractice() {
+            playSound('click');
+            document.getElementById('keliling-main-view').classList.add('hidden');
+            document.getElementById('keliling-practice-view').classList.remove('hidden');
+            initKelilingPractice();
+        }
+
+        function closeKelilingPractice() {
+            playSound('click');
+            document.getElementById('keliling-practice-view').classList.add('hidden');
+            document.getElementById('keliling-main-view').classList.remove('hidden');
+        }
+
+        function initKelilingPractice() {
+            kelilingIdx = 0;
+            kelilingScore = 0;
+            document.getElementById('keliling-practice-results').classList.add('hidden');
+            document.getElementById('keliling-quiz-container').classList.remove('hidden');
+
+            kelilingPracticeData = [
+                { q: "Berapakah keliling lingkaran dengan jari-jari r = 7 cm? (π = 22/7)", opts: ["44 cm", "22 cm", "88 cm", "154 cm"], ans: 0 },
+                { q: "Sebuah lingkaran memiliki diameter d = 20 cm. Berapakah kelilingnya? (π = 3,14)", opts: ["62,8 cm", "31,4 cm", "125,6 cm", "100 cm"], ans: 0 },
+                { q: "Hitung keliling lingkaran dengan r = 14 cm. (π = 22/7)", opts: ["88 cm", "44 cm", "176 cm", "616 cm"], ans: 0 },
+                { q: "Jika diameter lingkaran adalah 10 cm, berapakah kelilingnya? (π = 3,14)", opts: ["31,4 cm", "15,7 cm", "62,8 cm", "314 cm"], ans: 0 },
+                { q: "Sebuah roda berdiameter 70 cm berputar sekali penuh. Berjarak berapa kelilingnya? (π = 22/7)", opts: ["220 cm", "110 cm", "440 cm", "154 cm"], ans: 0 }
+            ].sort(() => Math.random() - 0.5);
+
+            renderKelilingPracticeQuestion();
+        }
+
+        function renderKelilingPracticeQuestion() {
+            if (kelilingIdx >= kelilingPracticeData.length) {
+                showKelilingResults();
+                return;
+            }
+            const item = kelilingPracticeData[kelilingIdx];
+            const container = document.getElementById('keliling-quiz-container');
+            
+            let shuffled = [...item.opts];
+            const correctText = item.opts[item.ans];
+            shuffled.sort(() => Math.random() - 0.5);
+            const newAnsIdx = shuffled.indexOf(correctText);
+
+            container.innerHTML = `
+                <div class="bg-purple-50 p-4 rounded-2xl border border-purple-200 text-xs font-bold text-purple-900 mb-2">Soal ${kelilingIdx + 1} dari 5 | Skor Sementara: <span id="kp-score-live">${kelilingScore}</span></div>
+                <h4 class="font-heading text-base font-bold text-slate-800 mb-4">${item.q}</h4>
+                <div class="space-y-2" id="kp-opts"></div>
+                <div id="kp-fb" class="text-xs font-bold mt-2 h-5"></div>
+            `;
+
+            const optsBox = document.getElementById('kp-opts');
+            shuffled.forEach((optText, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-3 rounded-xl border border-slate-200 hover:border-purple-400 bg-white text-xs font-bold text-slate-700 transition shadow-sm";
+                btn.innerText = optText;
+                btn.onclick = () => {
+                    Array.from(optsBox.children).forEach(b => b.disabled = true);
+                    if (oIdx === newAnsIdx) {
+                        playSound('correct');
+                        kelilingScore += 20;
+                        document.getElementById('kp-score-live').innerText = kelilingScore;
+                        document.getElementById('kp-fb').className = "text-xs font-bold mt-2 text-emerald-600";
+                        document.getElementById('kp-fb').innerText = "🎉 Benar! +20 Poin";
+                    } else {
+                        playSound('wrong');
+                        document.getElementById('kp-fb').className = "text-xs font-bold mt-2 text-rose-600";
+                        document.getElementById('kp-fb').innerText = "❌ Kurang tepat!";
+                    }
+                    setTimeout(() => {
+                        kelilingIdx++;
+                        renderKelilingPracticeQuestion();
+                    }, 1000);
+                };
+                optsBox.appendChild(btn);
+            });
+        }
+
+        function showKelilingResults() {
+            document.getElementById('keliling-quiz-container').classList.add('hidden');
+            const resEl = document.getElementById('keliling-practice-results');
+            resEl.classList.remove('hidden');
+
+            let msg = kelilingScore >= 80 
+                ? `🎉 Selamat! Skor kamu ${kelilingScore} dari 100. Kamu sangat hebat memahami keliling lingkaran!`
+                : `💪 Tetap semangat! Skor kamu ${kelilingScore} dari 100. Ayo pelajari kembali materinya dan coba lagi!`;
+
+            resEl.innerHTML = `
+                <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <h4 class="font-heading text-xl font-bold text-slate-900">Latihan Selesai!</h4>
+                <div class="text-2xl font-black text-purple-900">Skor: ${kelilingScore} / 100</div>
+                <p class="text-sm text-slate-600 px-4 leading-relaxed">${msg}</p>
+                <button onclick="initKelilingPractice()" class="px-6 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-bold text-xs shadow transition inline-flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-right"></i> Uji Coba Lagi
+                </button>
+            `;
+        }
+
+        // PRACTICE LUAS
+        let luasPracticeData = [];
+        let luasIdx = 0;
+        let luasScore = 0;
+
+        function openLuasPractice() {
+            playSound('click');
+            document.getElementById('luas-main-view').classList.add('hidden');
+            document.getElementById('luas-practice-view').classList.remove('hidden');
+            initLuasPractice();
+        }
+
+        function closeLuasPractice() {
+            playSound('click');
+            document.getElementById('luas-practice-view').classList.add('hidden');
+            document.getElementById('luas-main-view').classList.remove('hidden');
+        }
+
+        function initLuasPractice() {
+            luasIdx = 0;
+            luasScore = 0;
+            document.getElementById('luas-practice-results').classList.add('hidden');
+            document.getElementById('luas-quiz-container').classList.remove('hidden');
+
+            luasPracticeData = [
+                { q: "Berapakah luas lingkaran dengan jari-jari r = 7 cm? (π = 22/7)", opts: ["154 cm²", "44 cm²", "308 cm²", "616 cm²"], ans: 0 },
+                { q: "Sebuah lingkaran memiliki r = 10 cm. Berapakah luasnya? (π = 3,14)", opts: ["314 cm²", "62,8 cm²", "157 cm²", "31,4 cm²"], ans: 0 },
+                { q: "Hitung luas lingkaran dengan d = 14 cm. (π = 22/7)", opts: ["154 cm²", "44 cm²", "88 cm²", "308 cm²"], ans: 0 },
+                { q: "Jika jari-jari lingkaran 21 cm, berapakah luasnya? (π = 22/7)", opts: ["1386 cm²", "132 cm²", "441 cm²", "693 cm²"], ans: 0 },
+                { q: "Sebuah piring berbentuk lingkaran berdiameter 20 cm. Luas permukaannya adalah... (π = 3,14)", opts: ["314 cm²", "1256 cm²", "62,8 cm²", "157 cm²"], ans: 0 }
+            ].sort(() => Math.random() - 0.5);
+
+            renderLuasPracticeQuestion();
+        }
+
+        function renderLuasPracticeQuestion() {
+            if (luasIdx >= luasPracticeData.length) {
+                showLuasResults();
+                return;
+            }
+            const item = luasPracticeData[luasIdx];
+            const container = document.getElementById('luas-quiz-container');
+
+            let shuffled = [...item.opts];
+            const correctText = item.opts[item.ans];
+            shuffled.sort(() => Math.random() - 0.5);
+            const newAnsIdx = shuffled.indexOf(correctText);
+
+            container.innerHTML = `
+                <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 text-xs font-bold text-amber-900 mb-2">Soal ${luasIdx + 1} dari 5 | Skor Sementara: <span id="lp-score-live">${luasScore}</span></div>
+                <h4 class="font-heading text-base font-bold text-slate-800 mb-4">${item.q}</h4>
+                <div class="space-y-2" id="lp-opts"></div>
+                <div id="lp-fb" class="text-xs font-bold mt-2 h-5"></div>
+            `;
+
+            const optsBox = document.getElementById('lp-opts');
+            shuffled.forEach((optText, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-3 rounded-xl border border-slate-200 hover:border-amber-400 bg-white text-xs font-bold text-slate-700 transition shadow-sm";
+                btn.innerText = optText;
+                btn.onclick = () => {
+                    Array.from(optsBox.children).forEach(b => b.disabled = true);
+                    if (oIdx === newAnsIdx) {
+                        playSound('correct');
+                        luasScore += 20;
+                        document.getElementById('lp-score-live').innerText = luasScore;
+                        document.getElementById('lp-fb').className = "text-xs font-bold mt-2 text-emerald-600";
+                        document.getElementById('lp-fb').innerText = "🎉 Benar! +20 Poin";
+                    } else {
+                        playSound('wrong');
+                        document.getElementById('lp-fb').className = "text-xs font-bold mt-2 text-rose-600";
+                        document.getElementById('lp-fb').innerText = "❌ Kurang tepat!";
+                    }
+                    setTimeout(() => {
+                        luasIdx++;
+                        renderLuasPracticeQuestion();
+                    }, 1000);
+                };
+                optsBox.appendChild(btn);
+            });
+        }
+
+        function showLuasResults() {
+            document.getElementById('luas-quiz-container').classList.add('hidden');
+            const resEl = document.getElementById('luas-practice-results');
+            resEl.classList.remove('hidden');
+
+            let msg = luasScore >= 80 
+                ? `🎉 Selamat! Skor kamu ${luasScore} dari 100. Kamu sangat luar biasa menguasai luas lingkaran!`
+                : `💪 Tetap semangat! Skor kamu ${luasScore} dari 100. Terus berlatih dan pelajari rumusnya kembali!`;
+
+            resEl.innerHTML = `
+                <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <h4 class="font-heading text-xl font-bold text-slate-900">Latihan Selesai!</h4>
+                <div class="text-2xl font-black text-amber-900">Skor: ${luasScore} / 100</div>
+                <p class="text-sm text-slate-600 px-4 leading-relaxed">${msg}</p>
+                <button onclick="initLuasPractice()" class="px-6 py-2.5 bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-bold text-xs shadow transition inline-flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-right"></i> Uji Coba Lagi
+                </button>
+            `;
+        }
+
+        function backToM6Hub() {
+            playSound('click');
+            document.getElementById('m6-hub').classList.remove('hidden');
+            document.getElementById('m6-game-hub').classList.add('hidden');
+            document.getElementById('m6-duel-view').classList.add('hidden');
+            document.getElementById('m6-duel-results').classList.add('hidden');
+            document.getElementById('m6-group-view').classList.add('hidden');
+            document.getElementById('m6-group-results').classList.add('hidden');
+            document.getElementById('m6-kuis-view').classList.add('hidden');
+            document.getElementById('m6-k-results').classList.add('hidden');
+        }
+
+        function openM6Mode(mode) {
+            playSound('click');
+            document.getElementById('m6-hub').classList.add('hidden');
+            document.getElementById('m6-game-hub').classList.add('hidden');
+            document.getElementById('m6-duel-view').classList.add('hidden');
+            document.getElementById('m6-duel-results').classList.add('hidden');
+            document.getElementById('m6-group-view').classList.add('hidden');
+            document.getElementById('m6-group-results').classList.add('hidden');
+            document.getElementById('m6-kuis-view').classList.add('hidden');
+            document.getElementById('m6-k-results').classList.add('hidden');
+
+            if (mode === 'game') {
+                document.getElementById('m6-game-hub').classList.remove('hidden');
+            } else if (mode === 'kuis') {
+                document.getElementById('m6-kuis-view').classList.remove('hidden');
+                startM6Kuis();
+            }
+        }
+
+        // DUEL 2 PEMAIN LOGIC (10 questions, same questions in identical sequence, independent option shuffling, lives & waiting mechanism)
+        let duelQPool = [
+            { q: "Unsur lingkaran berupa garis lurus yang menghubungkan titik pusat ke tepi disebut...", opts: ["Jari-jari", "Diameter", "Tali Busur", "Apotema"], ans: 0 },
+            { q: "Rumus keliling lingkaran jika diketahui diameter (d) adalah...", opts: ["π × d", "π × r²", "2 × π × r", "1/4 × π × d²"], ans: 0 },
+            { q: "Luas lingkaran dengan r = 7 cm adalah...", opts: ["154 cm²", "44 cm²", "88 cm²", "308 cm²"], ans: 0 },
+            { q: "Garis tengah lingkaran yang melalui pusat disebut...", opts: ["Diameter", "Jari-jari", "Busur", "Juring"], ans: 0 },
+            { q: "Daerah dalam lingkaran dibatasi dua jari-jari dan busur disebut...", opts: ["Juring", "Tembereng", "Apotema", "Tali busur"], ans: 0 },
+            { q: "Jika r = 10 cm, berapakah keliling lingkaran? (π=3,14)", opts: ["62,8 cm", "31,4 cm", "314 cm", "100 cm"], ans: 0 },
+            { q: "Jika d = 14 cm, berapakah luas lingkaran? (π=22/7)", opts: ["154 cm²", "44 cm²", "88 cm²", "616 cm²"], ans: 0 },
+            { q: "Garis terpendek pusat ke tali busur adalah...", opts: ["Apotema", "Diameter", "Jari-jari", "Busur"], ans: 0 },
+            { q: "Daerah dibatasi tali busur dan busur disebut...", opts: ["Tembereng", "Juring", "Apotema", "Pusat"], ans: 0 },
+            { q: "Jika keliling lingkaran 44 cm, berapakah diameternya? (π=22/7)", opts: ["14 cm", "7 cm", "28 cm", "21 cm"], ans: 0 }
+        ];
+
+        let p1Idx = 0, p2Idx = 0;
+        let p1Lives = 3, p2Lives = 3;
+        let p1Score = 0, p2Score = 0;
+        let p1Finished = false, p2Finished = false;
+        let activeDuelQuestions = [];
+
+        function startDuelGame() {
+            playSound('click');
+            document.getElementById('m6-game-hub').classList.add('hidden');
+            document.getElementById('m6-duel-results').classList.add('hidden');
+            document.getElementById('m6-duel-view').classList.remove('hidden');
+
+            p1Lives = 3; p2Lives = 3;
+            p1Score = 0; p2Score = 0;
+            p1Idx = 0; p2Idx = 0;
+            p1Finished = false; p2Finished = false;
+
+            // Same 10 questions for both players
+            activeDuelQuestions = [...duelQPool];
+
+            renderP1Question();
+            renderP2Question();
+        }
+
+        function renderP1Question() {
+            const box = document.getElementById('duel-opts-p1');
+            const txtBox = document.getElementById('duel-q-text-p1');
+            const prog = document.getElementById('p1-progress');
+
+            document.getElementById('p1-lives').innerText = '❤️'.repeat(Math.max(0, p1Lives));
+            document.getElementById('p1-score').innerText = p1Score;
+
+            if (p1Idx >= 10 || p1Lives <= 0) {
+                p1Finished = true;
+                prog.innerText = "Selesai (Menunggu Pemain 2)";
+                txtBox.innerText = "✨ Kamu telah selesai! Menunggu lawan...";
+                box.innerHTML = '';
+                checkDuelCompletion();
+                return;
+            }
+
+            prog.innerText = `Soal #${p1Idx + 1} dari 10`;
+            const item = activeDuelQuestions[p1Idx];
+            txtBox.innerText = item.q;
+
+            let shuffled = [...item.opts];
+            const correctText = item.opts[item.ans];
+            shuffled.sort(() => Math.random() - 0.5);
+            const newAns = shuffled.indexOf(correctText);
+
+            box.innerHTML = '';
+            shuffled.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "p-2 bg-white border border-indigo-200 rounded-xl text-xs font-bold text-slate-700 hover:bg-indigo-100 transition";
+                btn.innerText = opt;
+                btn.onclick = () => {
+                    if (idx === newAns) {
+                        playSound('correct');
+                        p1Score += 100;
+                    } else {
+                        playSound('wrong');
+                        p1Lives--;
+                    }
+                    p1Idx++;
+                    renderP1Question();
+                };
+                box.appendChild(btn);
+            });
+        }
+
+        function renderP2Question() {
+            const box = document.getElementById('duel-opts-p2');
+            const txtBox = document.getElementById('duel-q-text-p2');
+            const prog = document.getElementById('p2-progress');
+
+            document.getElementById('p2-lives').innerText = '❤️'.repeat(Math.max(0, p2Lives));
+            document.getElementById('p2-score').innerText = p2Score;
+
+            if (p2Idx >= 10 || p2Lives <= 0) {
+                p2Finished = true;
+                prog.innerText = "Selesai (Menunggu Pemain 1)";
+                txtBox.innerText = "✨ Kamu telah selesai! Menunggu lawan...";
+                box.innerHTML = '';
+                checkDuelCompletion();
+                return;
+            }
+
+            prog.innerText = `Soal #${p2Idx + 1} dari 10`;
+            const item = activeDuelQuestions[p2Idx];
+            txtBox.innerText = item.q;
+
+            let shuffled = [...item.opts];
+            const correctText = item.opts[item.ans];
+            shuffled.sort(() => Math.random() - 0.5);
+            const newAns = shuffled.indexOf(correctText);
+
+            box.innerHTML = '';
+            shuffled.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "p-2 bg-white border border-rose-200 rounded-xl text-xs font-bold text-slate-700 hover:bg-rose-100 transition";
+                btn.innerText = opt;
+                btn.onclick = () => {
+                    if (idx === newAns) {
+                        playSound('correct');
+                        p2Score += 100;
+                    } else {
+                        playSound('wrong');
+                        p2Lives--;
+                    }
+                    p2Idx++;
+                    renderP2Question();
+                };
+                box.appendChild(btn);
+            });
+        }
+
+        function checkDuelCompletion() {
+            if (p1Finished && p2Finished) {
+                document.getElementById('m6-duel-view').classList.add('hidden');
+                document.getElementById('m6-duel-results').classList.remove('hidden');
+
+                document.getElementById('duel-res-p1-score').innerText = p1Score;
+                document.getElementById('duel-res-p2-score').innerText = p2Score;
+
+                const ann = document.getElementById('duel-winner-announcement');
+                if (p1Score > p2Score) {
+                    ann.innerText = `🏆 Pemain 1 Menang dengan Skor ${p1Score} vs ${p2Score}!`;
+                } else if (p2Score > p1Score) {
+                    ann.innerText = `🏆 Pemain 2 Menang dengan Skor ${p2Score} vs ${p1Score}!`;
+                } else {
+                    ann.innerText = `🤝 Pertandingan Seri dengan Skor ${p1Score}!`;
+                }
+            }
+        }
+
+        // GRUP 4 PEMAIN BUZZER REBUTAN LOGIC (+100 correct, -50 wrong, interactive option selection for the buzzing group)
+        let groupQList = [];
+        let groupIdx = 0;
+        let gScores = [0, 0, 0, 0];
+        let currentGroupQ = null;
+        let groupLockedOut = [false, false, false, false];
+        let activeBuzzGroup = null;
+
+        function startGroupGame() {
+            playSound('click');
+            document.getElementById('m6-game-hub').classList.add('hidden');
+            document.getElementById('m6-group-results').classList.add('hidden');
+            document.getElementById('m6-group-view').classList.remove('hidden');
+            gScores = [0, 0, 0, 0];
+            groupIdx = 0;
+
+            const pool20 = [
+                { q: "Jari-jari lingkaran adalah garis dari pusat ke...", opts: ["Tepi", "Tengah", "Luar", "Sebrang"], ans: 0 },
+                { q: "Diameter sama dengan berapa kali jari-jari?", opts: ["2 kali", "3 kali", "1/2 kali", "4 kali"], ans: 0 },
+                { q: "Rumus keliling lingkaran adalah...", opts: ["π × d", "π × r", "r²", "d²"], ans: 0 },
+                { q: "Rumus luas lingkaran adalah...", opts: ["π × r²", "π × d", "2 × π × r", "1/2 × π × r"], ans: 0 },
+                { q: "Nilai π yang digunakan jika r kelipatan 7 adalah...", opts: ["22/7", "3,14", "3,15", "2,14"], ans: 0 },
+                { q: "Daerah dibatasi dua jari-jari dan busur adalah...", opts: ["Juring", "Tembereng", "Apotema", "Busur"], ans: 0 },
+                { q: "Garis lurus menghubungkan dua titik lingkaran tanpa lewat pusat...", opts: ["Tali busur", "Diameter", "Jari-jari", "Apotema"], ans: 0 },
+                { q: "Garis lengkung bagian keliling lingkaran disebut...", opts: ["Busur", "Tali busur", "Juring", "Apotema"], ans: 0 },
+                { q: "Luas lingkaran r = 7 cm adalah...", opts: ["154 cm²", "44 cm²", "88 cm²", "22 cm²"], ans: 0 },
+                { q: "Keliling lingkaran d = 14 cm adalah...", opts: ["44 cm", "154 cm²", "88 cm", "22 cm"], ans: 0 },
+                { q: "Jarak terpendek pusat ke tali busur...", opts: ["Apotema", "Diameter", "Jari-jari", "Busur"], ans: 0 },
+                { q: "Daerah dibatasi tali busur dan busur...", opts: ["Tembereng", "Juring", "Pusat", "Diameter"], ans: 0 },
+                { q: "Jika r = 10 cm, diameternya adalah...", opts: ["20 cm", "10 cm", "5 cm", "40 cm"], ans: 0 },
+                { q: "Jika d = 30 cm, jari-jarinya adalah...", opts: ["15 cm", "30 cm", "60 cm", "10 cm"], ans: 0 },
+                { q: "Keliling lingkaran r = 7 cm adalah...", opts: ["44 cm", "154 cm", "88 cm", "22 cm"], ans: 0 },
+                { q: "Luas lingkaran r = 10 cm (π=3,14)...", opts: ["314 cm²", "62,8 cm²", "157 cm²", "31,4 cm²"], ans: 0 },
+                { q: "Titik di tengah lingkaran disebut...", opts: ["Titik Pusat", "Jari-jari", "Diameter", "Busur"], ans: 0 },
+                { q: "Alat untuk menggambar lingkaran...", opts: ["Jangka", "Penggaris", "Busur derajat", "Pezil"], ans: 0 },
+                { q: "Keliling lingkaran d = 7 cm adalah...", opts: ["22 cm", "44 cm", "154 cm", "14 cm"], ans: 0 },
+                { q: "Luas lingkaran d = 14 cm adalah...", opts: ["154 cm²", "616 cm²", "44 cm²", "308 cm²"], ans: 0 }
+            ];
+
+            groupQList = pool20.sort(() => Math.random() - 0.5).slice(0, 10);
+            renderGroupQuestion();
+        }
+
+        function renderGroupQuestion() {
+            if (groupIdx >= groupQList.length) {
+                showGroupWinnerModal();
+                return;
+            }
+            document.getElementById('grp-q-num').innerText = groupIdx + 1;
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(`g${i+1}-score`).innerText = gScores[i];
+            }
+
+            groupLockedOut = [false, false, false, false];
+            activeBuzzGroup = null;
+            document.getElementById('grp-feedback').innerText = '';
+            document.getElementById('grp-action-label').innerText = "Tekan Tombol Rebutan Kelompok untuk Menjawab (Benar +100, Salah -50):";
+
+            currentGroupQ = groupQList[groupIdx];
+            document.getElementById('grp-question').innerText = currentGroupQ.q;
+
+            let shuffled = [...currentGroupQ.opts];
+            const correctText = currentGroupQ.opts[currentGroupQ.ans];
+            shuffled.sort(() => Math.random() - 0.5);
+            currentGroupQ.currentShuffledAns = shuffled.indexOf(correctText);
+            currentGroupQ.shuffledOpts = shuffled;
+
+            renderGroupOptions(false);
+            updateGroupButtonStates();
+        }
+
+        function renderGroupOptions(clickable) {
+            const optBox = document.getElementById('grp-options');
+            optBox.innerHTML = '';
+            currentGroupQ.shuffledOpts.forEach((opt, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = clickable 
+                    ? "p-3 bg-indigo-50 border-2 border-indigo-300 hover:border-indigo-600 rounded-xl text-xs font-bold text-indigo-900 transition shadow cursor-pointer"
+                    : "p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 cursor-not-allowed";
+                btn.innerText = opt;
+                if (clickable) {
+                    btn.onclick = () => handleGroupAnswerSelection(oIdx);
+                }
+                optBox.appendChild(btn);
+            });
+        }
+
+        function updateGroupButtonStates() {
+            for (let i = 1; i <= 4; i++) {
+                const btn = document.getElementById(`grp-btn-${i}`);
+                if (groupLockedOut[i - 1]) {
+                    btn.disabled = true;
+                    btn.className = "px-3.5 py-2 bg-slate-300 text-slate-500 rounded-xl text-xs font-bold cursor-not-allowed";
+                } else {
+                    btn.disabled = false;
+                    if (i === 1) btn.className = "px-3.5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow";
+                    if (i === 2) btn.className = "px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow";
+                    if (i === 3) btn.className = "px-3.5 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold shadow";
+                    if (i === 4) btn.className = "px-3.5 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold shadow";
+                }
+            }
+        }
+
+        function tryGroupBuzzer(grpNum) {
+            if (groupLockedOut[grpNum - 1]) return;
+            activeBuzzGroup = grpNum;
+            playSound('click');
+
+            document.getElementById('grp-action-label').innerText = `✨ Kelompok ${grpNum} sedang menjawab! Silakan klik salah satu tombol jawaban di atas:`;
+            document.getElementById('grp-feedback').innerText = `Kelompok ${grpNum} berhasil membunyikan bel!`;
+            
+            // Disable all buzzers while active group answers
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`grp-btn-${i}`).disabled = true;
+            }
+
+            renderGroupOptions(true);
+        }
+
+        function handleGroupAnswerSelection(selectedIdx) {
+            if (!activeBuzzGroup) return;
+            const grpNum = activeBuzzGroup;
+
+            if (selectedIdx === currentGroupQ.currentShuffledAns) {
+                playSound('correct');
+                gScores[grpNum - 1] += 100;
+                document.getElementById('grp-feedback').className = "text-xs font-bold h-6 text-emerald-600";
+                document.getElementById('grp-feedback').innerText = `🎉 Kelompok ${grpNum} Benar! (+100 Poin)`;
+                for (let i = 0; i < 4; i++) {
+                    document.getElementById(`g${i+1}-score`).innerText = gScores[i];
+                }
+                setTimeout(() => {
+                    groupIdx++;
+                    renderGroupQuestion();
+                }, 1200);
+            } else {
+                playSound('wrong');
+                gScores[grpNum - 1] -= 50;
+                groupLockedOut[grpNum - 1] = true;
+                document.getElementById('grp-feedback').className = "text-xs font-bold h-6 text-rose-600";
+                document.getElementById('grp-feedback').innerText = `❌ Kelompok ${grpNum} Salah! (-50 Poin) & Terkunci untuk soal ini. Kelompok lain silakan merebut!`;
+                for (let i = 0; i < 4; i++) {
+                    document.getElementById(`g${i+1}-score`).innerText = gScores[i];
+                }
+
+                activeBuzzGroup = null;
+                renderGroupOptions(false);
+                updateGroupButtonStates();
+
+                if (groupLockedOut.every(Boolean)) {
+                    alert("Semua kelompok terkunci / salah menjawab! Lanjut ke soal berikutnya.");
+                    groupIdx++;
+                    renderGroupQuestion();
+                }
+            }
+        }
+
+        function showGroupWinnerModal() {
+            document.getElementById('m6-group-view').classList.add('hidden');
+            document.getElementById('m6-group-results').classList.remove('hidden');
+
+            let maxScore = Math.max(...gScores);
+            let winnerIdx = gScores.indexOf(maxScore);
+            document.getElementById('group-winner-announcement').innerText = `🏆 Kelompok ${winnerIdx + 1} Menang dengan Skor Tertinggi: ${maxScore} Poin!`;
+        }
+
+        // KUIS INTERAKTIF
+        let m6KuisData = [];
+        let m6KIdx = 0;
+        let m6KScore = 0;
+
+        function startM6Kuis() {
+            m6KIdx = 0;
+            m6KScore = 0;
+            document.getElementById('m6-k-results').classList.add('hidden');
+            document.getElementById('m6-kuis-view').classList.remove('hidden');
+
+            m6KuisData = [
+                {
+                    story: "Taman Kota 'Roda Pelangi'",
+                    q: "Sebuah taman berbentuk lingkaran memiliki jari-jari 14 meter. Pemerintah kota ingin memasang pagar pembatas di sekeliling taman. Berapa panjang pagar yang dibutuhkan? (π = 22/7)",
+                    opts: ["88 meter", "44 meter", "154 meter", "176 meter"],
+                    ans: 0
+                },
+                {
+                    story: "Pesta Ulang Tahun",
+                    q: "Kue tart berbentuk lingkaran berdiameter 28 cm dipotong menjadi 4 bagian sama besar (juring). Berapa luas permukaan satu potong kue tersebut?",
+                    opts: ["154 cm²", "308 cm²", "616 cm²", "77 cm²"],
+                    ans: 0
+                },
+                {
+                    story: "Perjalanan Roda Sepeda",
+                    q: "Roda sepeda anak memiliki diameter 50 cm. Jika roda tersebut berputar sebanyak 100 kali putaran penuh di jalan datar, berapa meter jarak yang telah ditempuh anak tersebut? (π = 3,14)",
+                    opts: ["157 meter", "314 meter", "78,5 meter", "1570 meter"],
+                    ans: 0
+                },
+                {
+                    story: "Kolam Renang Bundar",
+                    q: "Sebuah kolam renang berbentuk lingkaran memiliki keliling 132 meter. Berapakah jari-jari kolam renang tersebut? (π = 22/7)",
+                    opts: ["21 meter", "14 meter", "42 meter", "7 meter"],
+                    ans: 0
+                },
+                {
+                    story: "Meja Makan Kaca",
+                    q: "Sebuah permukaan meja kaca berbentuk lingkaran memiliki jari-jari 70 cm. Jika tukang kaca ingin melapisi pinggiran meja dengan karet pengaman, berapa panjang karet yang diperlukan? (π = 22/7)",
+                    opts: ["440 cm", "220 cm", "1540 cm", "880 cm"],
+                    ans: 0
+                },
+                {
+                    story: "Penyiraman Tanaman Otomatis",
+                    q: "Alat penyiram tanaman otomatis berputar menyiram area berbentuk lingkaran dengan jangkauan jari-jari 7 meter. Berapa luas area rumput yang berhasil disiram? (π = 22/7)",
+                    opts: ["154 m²", "44 m²", "308 m²", "88 m²"],
+                    ans: 0
+                },
+                {
+                    story: "Arena Skateboard",
+                    q: "Arena papan luncur (skateboard) melingkar memiliki diameter 14 meter. Seorang anak meluncur tepat melewati garis tengah dari satu sisi ke sisi seberang. Berapa panjang lintasan garis tengah tersebut?",
+                    opts: ["14 meter", "7 meter", "44 meter", "22 meter"],
+                    ans: 0
+                },
+                {
+                    story: "Jam Dinding Raksasa",
+                    q: "Sebuah jam dinding di gedung perkotaan memiliki jari-jari 1,5 meter. Berapakah keliling bingkai jam dinding tersebut? (π = 3,14)",
+                    opts: ["9,42 meter", "4,71 meter", "14,13 meter", "7,06 meter"],
+                    ans: 0
+                },
+                {
+                    story: "Ubin Lantai Motif",
+                    q: "Sebuah ubin keramik bermotif lingkaran memiliki diameter 28 cm. Berapa luas ubin lingkaran tersebut? (π = 22/7)",
+                    opts: ["616 cm²", "154 cm²", "308 cm²", "88 cm²"],
+                    ans: 0
+                },
+                {
+                    story: "Lintasan Lari Stadion",
+                    q: "Sebuah lapangan sepak bola memiliki tikungan lintasan lari berbentuk setengah lingkaran di kedua ujungnya dengan jari-jari 21 meter. Berapa keliling satu lingkaran penuh tikungan tersebut? (π = 22/7)",
+                    opts: ["132 meter", "66 meter", "264 meter", "88 meter"],
+                    ans: 0
+                }
+            ];
+
+            renderM6KuisQuestion();
+        }
+
+        function renderM6KuisQuestion() {
+            if (m6KIdx >= m6KuisData.length) {
+                showM6KuisResults();
+                return;
+            }
+            const item = m6KuisData[m6KIdx];
+            document.getElementById('m6-k-num').innerText = m6KIdx + 1;
+            document.getElementById('m6-k-score').innerText = m6KScore;
+            document.getElementById('m6-k-badge').innerText = item.story;
+            document.getElementById('m6-k-text').innerText = item.q;
+            document.getElementById('m6-k-feedback').classList.add('hidden');
+            document.getElementById('m6-k-next-btn').classList.add('hidden');
+
+            let shuffled = [...item.opts];
+            const correctText = item.opts[item.ans];
+            shuffled.sort(() => Math.random() - 0.5);
+            const newAns = shuffled.indexOf(correctText);
+
+            const optBox = document.getElementById('m6-k-options');
+            optBox.innerHTML = '';
+            shuffled.forEach((optText, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "p-4 rounded-2xl border-2 border-slate-200 hover:border-rose-500 bg-white text-left font-bold text-slate-700 text-sm transition shadow-sm";
+                btn.innerText = optText;
+                btn.onclick = () => {
+                    Array.from(optBox.children).forEach(b => b.disabled = true);
+                    const fb = document.getElementById('m6-k-feedback');
+                    fb.classList.remove('hidden');
+
+                    if (oIdx === newAns) {
+                        playSound('correct');
+                        m6KScore += 10;
+                        document.getElementById('m6-k-score').innerText = m6KScore;
+                        btn.className = "p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold text-sm shadow";
+                        fb.className = "p-3 rounded-2xl text-center font-bold text-xs bg-emerald-100 text-emerald-800 border border-emerald-300";
+                        fb.innerText = "🎉 Tepat sekali! Jawaban benar (+10 Poin).";
+                    } else {
+                        playSound('wrong');
+                        btn.className = "p-4 rounded-2xl border-2 border-rose-500 bg-rose-50 text-rose-900 font-bold text-sm shadow";
+                        fb.className = "p-3 rounded-2xl text-center font-bold text-xs bg-rose-100 text-rose-800 border border-rose-300";
+                        fb.innerText = "❌ Kurang tepat.";
+                    }
+                    document.getElementById('m6-k-next-btn').classList.remove('hidden');
+                };
+                optBox.appendChild(btn);
+            });
+        }
+
+        function nextM6Kuis() {
+            playSound('click');
+            m6KIdx++;
+            renderM6KuisQuestion();
+        }
+
+        function showM6KuisResults() {
+            document.getElementById('m6-kuis-view').classList.add('hidden');
+            const resBox = document.getElementById('m6-k-results');
+            resBox.classList.remove('hidden');
+
+            document.getElementById('m6-k-final-score').innerText = m6KScore;
+            const rewardMsg = document.getElementById('m6-k-reward-msg');
+
+            if (m6KScore >= 80) {
+                rewardMsg.innerHTML = `🎉 <b>Selamat!</b> Kamu berhasil meraih nilai ${m6KScore}. Kemampuan berpikir kritis dan pemecahan masalah kontekstual lingkaran kamu sangat luar biasa!`;
+                rewardMsg.className = "text-sm font-bold text-emerald-700 px-2 leading-relaxed";
+            } else {
+                rewardMsg.innerHTML = `💪 <b>Tetap Semangat!</b> Nilai kamu ${m6KScore}. Ayo terus belajar, teliti membaca soal cerita kontekstual, dan coba lagi untuk hasil yang lebih memuaskan!`;
+                rewardMsg.className = "text-sm font-bold text-slate-700 px-2 leading-relaxed";
+            }
+        }
+
+        window.onload = function() {
+            renderElementButtons();
+            selectElement('pusat');
+            showRealWorldObject('pizza');
+            updateKelilingSim();
+            updateLuasSim();
+        };
+    </script>
+</body>
+</html>
